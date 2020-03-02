@@ -1,0 +1,40 @@
+#glavni
+{
+    padding-top: 15px;
+    width: fit-content;
+    margin: auto;
+}
+
+td::selection
+{
+    background: transparent;
+}
+
+td
+{
+    cursor: pointer;
+}
+
+#glavni h1
+{
+    text-align: center;
+}
+
+#glavni p
+{
+    text-align: center;
+}
+
+#dugme
+{
+    width: fit-content;
+    margin: auto;
+}
+
+.polje
+{
+    text-align: center;
+    font-size: 70px;
+    width: 100px;
+    height: 100px;
+}
