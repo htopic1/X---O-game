@@ -87,12 +87,38 @@
     100% {left: 0px}
 }
 
-img
+.slika
+{
+    position: relative;
+}
+
+.slika img
 {
     cursor: pointer;
     width: 100px;
     height: 100px;
     border-radius: 100%;
+}
+
+.AnSl
+{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.AnSl img
+{
+    width: 25px;
+    height: 25px;
+}
+
+#i1 img, #i2 img
+{
+    width: 21px;
+    height: 21px;
+    vertical-align: bottom;
+    cursor: auto;
 }
 
 #glavni
@@ -102,22 +128,22 @@ img
     margin: auto;
 }
 
+#glavni2
+{
+    display: none;
+}
+
 td::selection
 {
     background: transparent;
 }
 
-td
-{
-    cursor: pointer;
-}
-
-#glavni h1
+#glavni2 h1
 {
     text-align: center;
 }
 
-#glavni p
+#glavni2 p
 {
     text-align: center;
 }
@@ -138,12 +164,21 @@ td
 
 table
 {
+    border: solid gray;
     margin: auto;
 }
 
 input
 {
     text-align: center;
+    border: none;
+    outline: none;
+    height: 21px;
+}
+
+input:focus
+{
+    border-bottom: 1px solid;
 }
 
 #odGumba
