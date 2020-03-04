@@ -25,7 +25,7 @@ var varijabla = angular
                     var animacija2={
                         "right":"0px",
                         "animation-duration":"0.15s",
-                        "animation-iteration-count":"1",
+                        "animation-iteration-count":"1",//i ovdje
                         "animation-timing-function":"linear",
                         "animation-name":"animacija" 
                     }
@@ -46,9 +46,9 @@ var varijabla = angular
                             $scope.stil22=animacija2;
                             ponavljanje++;
                             if(ponavljanje%2==0)
-                            animacija2["animation-name"]="animacija"
+                            {animacija2["animation-name"]="animacija"}
                             else
-                            animacija2["animation-name"]="animacijaa"
+                            {animacija2["animation-name"]="animacijaa"}
                         }
                     }
                     $scope.nazad=function()
@@ -78,7 +78,7 @@ var varijabla = angular
                     var hoverovano=[hoverovano0=false,hoverovano1=false,hoverovano2=false,hoverovano3=false,hoverovano4=false,hoverovano5=false,hoverovano6=false,hoverovano7=false,hoverovano8=false,hoverovano9=false,hoverovano10=false]
                     var divovi=["#nulti","#prvi","#drugi","#treci","#cetvrti","#peti","#sesti","#sedmi","#osmi","#deveti",]
                     var divovi2=["#nulti0","#prvi1","#drugi2","#treci3","#cetvrti4","#peti5","#sesti6","#sedmi7","#osmi8","#deveti9",]
-                    var slike=["PUBG.jpg","1.jpg","2.png","3.jpg","4.png","5.png","6.jpg","7.png","8.png","9.jpg"]
+                    var slike=["Avatars/PUBG.jpg","Avatars/1.jpg","Avatars/2.png","Avatars/3.jpg","Avatars/4.png","Avatars/5.png","Avatars/6.jpg","Avatars/7.png","Avatars/8.png","Avatars/9.jpg"]
                     var daLiJeHoverovano=false
                     $scope.hoveruj=function(redniBroj,redniBroj2)
                     {
@@ -133,7 +133,7 @@ var varijabla = angular
                     }
                 })
 
-                .controller("kontroler3",function($scope,$timeout){
+                .controller("kontroler3",function($scope,$timeout,$rootScope){
                     $scope.player1=""
                     $scope.player2=""
 

@@ -61,9 +61,9 @@
 
 @keyframes animacija
 {
-    0% {right: 0px}
+    from {right: 0px}
     50% {right: 25px}
-    100% {right: 0px}
+    to {right: 0px}
 }
 
 @keyframes animacijaa
@@ -165,7 +165,6 @@ td::selection
 table
 {
     border: solid gray;
-    margin: auto;
 }
 
 input
@@ -191,4 +190,35 @@ input:focus
 {
     width: 100px;
     height: 25px;
+}
+
+
+/*polovicaaaaa*/
+#glavniStr2
+{
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#igrac1
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#igrac2
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#inpTabela
+{
+    width: fit-content;
+    margin: auto;
 }
