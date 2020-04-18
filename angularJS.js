@@ -17,7 +17,7 @@ var varijabla = angular
                     $rootScope.prvoIme=""
                     $rootScope.drugoIme=""
                 })
-
+                /*
                 .controller("kontrolerDugmadi",function($scope){
                     $scope.promjena=function(broj){
                         if(broj==1){
@@ -41,7 +41,7 @@ var varijabla = angular
                             $scope.promjena2={"display":"none"}
                         }
                     }
-                })
+                })*/
 
                 .controller("kontroler",function($scope){
                     var right1=0;
@@ -158,9 +158,11 @@ var varijabla = angular
                     }
                 })
 
-                .controller("kontroler3",function($scope,$timeout){
+                .controller("kontroler3",function($scope,$timeout,$rootScope){
                     $scope.player1=""
                     $scope.player2=""
+                    
+                    
 
                     $scope.pokreni=function(player1,player2){
                         if(player1!="" && player2!="")

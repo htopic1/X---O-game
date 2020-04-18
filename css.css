@@ -181,7 +181,7 @@
     margin: auto;
 }
 
-#glavni2, #glavni1, #glavni0 /*** bar za sada **/
+#glavni2/*, #glavni1, #glavni0 ** bar za sada **/
 {
     display: none;
 }
