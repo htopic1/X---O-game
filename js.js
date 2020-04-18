@@ -12,15 +12,16 @@ function dodaj_Evente_i_ostala_pravila()
         glKlasa[i].addEventListener('click',klikEvent)
         function klikEvent(event)
         {
-            if(won==false)
+            if(won==false && nizXO[event.target.getAttribute("index")-1]!="X" && nizXO[event.target.getAttribute("index")-1]!="O")
             {
+                console.log("haris");
+                
                 dodaj_X_ili_O_u_tabelu()
                 dodaj_X_ili_O_u_niz()
                 pobjeda_ili_nerijeseno()
                 promijeni_igraca()
             }
         }
-
         glKlasa[i].addEventListener('mouseover',mouseOverEvent,true)
         glKlasa[i].addEventListener("mouseleave",mouseLeaveEvent,false)
     }

@@ -1,1 +1,3 @@
 # X---O-game
+
+Uradjen je player2 djelimicno...

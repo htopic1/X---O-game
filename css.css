@@ -1,5 +1,36 @@
+#dugmad
+{
+    text-align: center;
+    border: solid;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+#dugmad button
+{
+    background: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px;
+    outline: none;
+    cursor: pointer;
+}
+
+#dugmad button:hover
+{
+    background: gray;
+}
+
+#dugmad button:active
+{
+    background: rgb(70, 65, 65);
+    color: white;
+}
+
 #uvodniPodaci h1
 {
+    margin: 0;
     text-align: center;
 }
 
@@ -24,7 +55,7 @@
 {
     position: absolute;
     outline: none;
-    left: 0px;
+    left: 75px;
     margin-top: 6%;
     cursor: pointer;
 }
@@ -33,9 +64,31 @@
 {
     position: absolute;
     outline: none;
-    right: 0px;
+    right: 75px;
     margin-top: 6%;
     cursor: pointer;
+}
+
+#sjena
+{
+    position: absolute;
+    z-index: 1;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+}
+
+#sjena2
+{
+    position: absolute;
+    z-index: 1;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
 }
 
 #prvi5
@@ -43,7 +96,7 @@
     display: flex;
     position: absolute;
     right: 0px;
-    transition: .5s;
+    transition: .2s;
     width: 100%;
     height: 100%;
     /*animation: 1s linear 1 animacija1;*/
@@ -54,7 +107,7 @@
     display: flex;
     position: absolute;
     right: -500px;
-    transition: .5s;
+    transition: .2s;
     width: 100%;
     height: 100%;
 }
@@ -128,7 +181,7 @@
     margin: auto;
 }
 
-#glavni2
+#glavni2/*, #glavni1, #glavni0 ** bar za sada **/
 {
     display: none;
 }
@@ -138,8 +191,47 @@ td::selection
     background: transparent;
 }
 
+#glavniDio
+{
+    width: fit-content;
+    margin: auto;
+}
+
+/***************************/
+#linija
+{
+    width: 100%;
+    height: 5px;
+    background: black;
+    position: relative;
+    filter: blur(2px);
+}
+
+#kocka
+{
+    position: absolute;
+    top: -2px;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 100%;
+    filter: blur(2px);
+    animation: 10s infinite linear running kocka;
+}
+
+@keyframes kocka
+{
+    0% {left: 0px;}
+    50% {left: 700px;}
+    100% {left: 0px;}
+}
+
+
+/****************************/
+
 #glavni2 h1
 {
+    margin: 0;
     text-align: center;
 }
 
@@ -186,7 +278,7 @@ input:focus
     margin: auto;
 }
 
-#gumb
+.gumb
 {
     width: 100px;
     height: 25px;

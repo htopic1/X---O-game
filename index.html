@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css.css">
+        <!--<script src="https://use.fontawesome.com/8e8e87c1a9.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+        <script src="angularJS.js"></script>
+    </head>
+    <!--Popraviti promjenu-->
+    <body ng-app="modul" ng-controller="kontroler3" ng-style="stilEkrana">
+        <div id="glavniDio" ><!--ng-controller="kontrolerDugmadi"-->
+            <!--Dugmad
+            <div id="dugmad" ng-style="promjena0">
+                <h1>TIC TAC TOE</h1><hr><br>
+                <button ng-click="promjena(1)">Player1</button><br><br>
+                <button ng-click="promjena(2)">Player2</button><br><br>
+                <button>About Us</button><br><br>
+                <button>Quit</button><br><br>
+            </div>-->
+            <!--1 igrac
+            <div id="glavni0" ng-style="promjena1">
+                <div id="uvodniPodaci">
+                    <div id="h1">
+                        <h1>Odaberite avatara:</h1>
+                        <div id="linija">
+                            <div id="kocka"></div>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div ng-controller="kontroler" id="prijePlayer1">
+                        <div id="lijevo">
+                            <button ng-click="nazad()" id="dugme1"><</button>
+                        </div>
+                        <div id="sjena"></div>
+                        <div id="sjena2"></div>
+                        <div id="desno">
+                            <button ng-click="naprijed()" id="dugme2">></button>
+                        </div>
+                        
+                        <div id="player1" ng-controller="kontroler2">
+                            <div ng-style="stil11" id="prvi5">
+                                <div class="slika"><img ng-init="stil0" ng-click="stil0=hoveruj(0,0)" ng-style="stil0" ><div class="AnSl" id="nulti"></div></div>
+                                <div class="slika"><img ng-init="stil1" ng-click="stil1=hoveruj(1,1)" ng-style="stil1" src="Avatars/2.png"><div class="AnSl" id="prvi"></div></div>
+                                <div class="slika"><img ng-init="stil2" ng-click="stil2=hoveruj(2,2)" ng-style="stil2" src="Avatars/3.jpg"><div class="AnSl" id="drugi"></div></div>
+                                <div class="slika"><img ng-init="stil3" ng-click="stil3=hoveruj(3,3)" ng-style="stil3" src="Avatars/4.png"><div class="AnSl" id="treci"></div></div>
+                                <div class="slika"><img ng-init="stil4" ng-click="stil4=hoveruj(4,4)" ng-style="stil4" src="Avatars/5.png"><div class="AnSl" id="cetvrti"></div></div>
+                            </div>
+                            <div ng-style="stil22" id="drugi5">
+                                <div class="slika"><img ng-init="stil5" ng-click="stil5=hoveruj(5,5)" ng-style="stil5" src="Avatars/6.jpg"><div class="AnSl" id="peti"></div></div>
+                                <div class="slika"><img ng-init="stil6" ng-click="stil6=hoveruj(6,6)" ng-style="stil6" src="Avatars/7.png"><div class="AnSl" id="sesti"></div></div>
+                                <div class="slika"><img ng-init="stil7" ng-click="stil7=hoveruj(7,7)" ng-style="stil7" src="Avatars/8.png"><div class="AnSl" id="sedmi"></div></div>
+                                <div class="slika"><img ng-init="stil8" ng-click="stil8=hoveruj(8,8)" ng-style="stil8" src="Avatars/9.jpg"><div class="AnSl" id="osmi"></div></div>
+                                <div class="slika"><img ng-init="stil9" ng-click="stil9=hoveruj(9,9)" ng-style="stil9" <!--src="Avatars/PUBG.jpg"><div class="AnSl" id="deveti"></div></div>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <br><br><br>
+                    <div id="h1">
+                        <h1>Odaberite username:</h1>
+                        <div id="linija">
+                            <div id="kocka"></div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <table>
+                        <tr>
+                            <td><div id="i1"><img src="user-regular.svg" ng-style="stil111"><input ng-model="player1" ng-mouseout="okreni(11)" ng-click="okreni(1)" type="text" placeholder="Player1" maxlength="10"></div></td>
+                        </tr>
+                    </table>
+                    <div id="odGumba" ng-click="pokreni(player1,player2)"><br><button ng-class="vratiNazad(1)" class="gumb">NAZAD</button><button class="gumb">ZAPOČNI!</button></div>
+                </div>
+            </div>-->
+            <!--2 igraca-->
+            <div class="glavni" id="glavni1" ng-style="sakrij"><!--ng-style="promjena2"-->
+                <div id="uvodniPodaci">
+                    <div id="h1">
+                        <h1>Odaberite avatare:</h1>
+                        <div id="linija">
+                            <div id="kocka"></div>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div ng-controller="kontroler" id="prijePlayer1">
+                        <div id="lijevo">
+                            <button ng-click="nazad()" id="dugme1"><</button>
+                        </div>
+                        <div id="sjena"></div>
+                        <div id="sjena2"></div>
+                        <div id="desno">
+                            <button ng-click="naprijed()" id="dugme2">></button>
+                        </div>
+                        
+                        <div id="player1" ng-controller="kontroler2">
+                            <div ng-style="stil11" id="prvi5">
+                                <div class="slika"><img ng-init="stil0" ng-click="stil0=hoveruj(0,0)" ng-style="stil0" <!--src="Avatars/1.jpg" ovo je sada blanko-->><div class="AnSl" id="nulti"></div></div>
+                                <div class="slika"><img ng-init="stil1" ng-click="stil1=hoveruj(1,1)" ng-style="stil1" src="Avatars/2.png"><div class="AnSl" id="prvi"></div></div>
+                                <div class="slika"><img ng-init="stil2" ng-click="stil2=hoveruj(2,2)" ng-style="stil2" src="Avatars/3.jpg"><div class="AnSl" id="drugi"></div></div>
+                                <div class="slika"><img ng-init="stil3" ng-click="stil3=hoveruj(3,3)" ng-style="stil3" src="Avatars/4.png"><div class="AnSl" id="treci"></div></div>
+                                <div class="slika"><img ng-init="stil4" ng-click="stil4=hoveruj(4,4)" ng-style="stil4" src="Avatars/5.png"><div class="AnSl" id="cetvrti"></div></div>
+                            </div>
+                            <div ng-style="stil22" id="drugi5">
+                                <div class="slika"><img ng-init="stil5" ng-click="stil5=hoveruj(5,5)" ng-style="stil5" src="Avatars/6.jpg"><div class="AnSl" id="peti"></div></div>
+                                <div class="slika"><img ng-init="stil6" ng-click="stil6=hoveruj(6,6)" ng-style="stil6" src="Avatars/7.png"><div class="AnSl" id="sesti"></div></div>
+                                <div class="slika"><img ng-init="stil7" ng-click="stil7=hoveruj(7,7)" ng-style="stil7" src="Avatars/8.png"><div class="AnSl" id="sedmi"></div></div>
+                                <div class="slika"><img ng-init="stil8" ng-click="stil8=hoveruj(8,8)" ng-style="stil8" src="Avatars/9.jpg"><div class="AnSl" id="osmi"></div></div>
+                                <div class="slika"><img ng-init="stil9" ng-click="stil9=hoveruj(9,9)" ng-style="stil9" <!--src="Avatars/PUBG.jpg"-->><div class="AnSl" id="deveti"></div></div>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div ng-controller="kontroler" id="prijePlayer1">
+                        <div id="lijevo">
+                            <button ng-click="nazad()" id="dugme1"><</button>
+                        </div>
+                        <div id="sjena"></div>
+                        <div id="sjena2"></div>
+                        <div id="desno">
+                            <button ng-click="naprijed()" id="dugme2">></button>
+                        </div>
+                        <div id="player1" ng-controller="kontroler2">
+                            <div ng-style="stil11" id="prvi5">
+                                <div class="slika"><img ng-init="stil0" ng-click="stil0=hoveruj(0,10)" ng-style="stil0" <!--src="Avatars/1.jpg"-->><div class="AnSl" id="nulti0"></div></div>
+                                <div class="slika"><img ng-init="stil1" ng-click="stil1=hoveruj(1,11)" ng-style="stil1" src="Avatars/2.png"><div class="AnSl" id="prvi1"></div></div>
+                                <div class="slika"><img ng-init="stil2" ng-click="stil2=hoveruj(2,12)" ng-style="stil2" src="Avatars/3.jpg"><div class="AnSl" id="drugi2"></div></div>
+                                <div class="slika"><img ng-init="stil3" ng-click="stil3=hoveruj(3,13)" ng-style="stil3" src="Avatars/4.png"><div class="AnSl" id="treci3"></div></div>
+                                <div class="slika"><img ng-init="stil4" ng-click="stil4=hoveruj(4,14)" ng-style="stil4" src="Avatars/5.png"><div class="AnSl" id="cetvrti4"></div></div>
+                            </div>
+                            <div ng-style="stil22" id="drugi5">
+                                <div class="slika"><img ng-init="stil5" ng-click="stil5=hoveruj(5,15)" ng-style="stil5" src="Avatars/6.jpg"><div class="AnSl" id="peti5"></div></div>
+                                <div class="slika"><img ng-init="stil6" ng-click="stil6=hoveruj(6,16)" ng-style="stil6" src="Avatars/7.png"><div class="AnSl" id="sesti6"></div></div>
+                                <div class="slika"><img ng-init="stil7" ng-click="stil7=hoveruj(7,17)" ng-style="stil7" src="Avatars/8.png"><div class="AnSl" id="sedmi7"></div></div>
+                                <div class="slika"><img ng-init="stil8" ng-click="stil8=hoveruj(8,18)" ng-style="stil8" src="Avatars/9.jpg"><div class="AnSl" id="osmi8"></div></div>
+                                <div class="slika"><img ng-init="stil9" ng-click="stil9=hoveruj(9,19)" ng-style="stil9" <!--src="Avatars/PUBG.jpg"-->><div class="AnSl" id="deveti9"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br><br>
+                    <div id="h1">
+                        <h1>Odaberite username:</h1>
+                        <div id="linija">
+                            <div id="kocka"></div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <table>
+                        <tr>
+                            <td><div id="i1"><img src="user-regular.svg" ng-style="stil111"><input ng-model="player1" ng-mouseout="okreni(11)" ng-click="okreni(1)" type="text" placeholder="Player1" maxlength="10"></div></td>
+                            <td><div id="i2"><img src="user-regular.svg" ng-style="stil222"><input ng-model="player2" ng-mouseout="okreni(22)" ng-click="okreni(2)" type="text" placeholder="Player2" maxlength="10"></div></td>
+                        </tr>
+                    </table>
+                    <div id="odGumba" ng-click="pokreni(player1,player2)"><br><button ng-click="vratiNazad(2)" class="gumb">NAZAD</button><button class="gumb">ZAPOČNI!</button></div>
+                </div>
+            </div>   
+            <!--Igrica--> 
+            <div class="glavni" id="glavni2" ng-style="otkrij">
+                <h1>TIC TAC TOE</h1>
+                <table border="1">
+                    <tr>
+                        <td index="1" class="polje"></td>
+                        <td index="2" class="polje"></td>
+                        <td index="3" class="polje"></td>
+                    </tr>
+                    <tr>
+                        <td index="4" class="polje"></td>
+                        <td index="5" class="polje"></td>
+                        <td index="6" class="polje"></td>
+                    </tr>
+                    <tr>
+                        <td index="7" class="polje"></td>
+                        <td index="8" class="polje"></td>
+                        <td index="9" class="polje"></td>
+                    </tr>
+                </table>
+                <p id="poruka">Na redu je: player1</p>
+                <div id="dugme" onclick="resetuj()"><button>RESET</button></div>
+            </div>
+        </div>
+        <script lang="javaScript" src="js.js"></script>
+    </body>
+</html>

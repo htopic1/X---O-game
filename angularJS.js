@@ -17,6 +17,31 @@ var varijabla = angular
                     $rootScope.prvoIme=""
                     $rootScope.drugoIme=""
                 })
+                /*
+                .controller("kontrolerDugmadi",function($scope){
+                    $scope.promjena=function(broj){
+                        if(broj==1){
+                            $scope.promjena0={"display":"none"}
+                            $scope.promjena1={"display":"block"}
+                        }
+                        else if(broj==2)
+                        {
+                            $scope.promjena0={"display":"none"}
+                            $scope.promjena2={"display":"block"}
+                        }
+                    }
+                    $scope.vratiNazad=function(broj){
+                        if(broj==1){
+                            $scope.promjena0={"display":"block"}
+                            $scope.promjena1={"display":"none"}
+                        }
+                        else if(broj==2)
+                        {
+                            $scope.promjena0={"display":"block"}
+                            $scope.promjena2={"display":"none"}
+                        }
+                    }
+                })*/
 
                 .controller("kontroler",function($scope){
                     var right1=0;
@@ -136,6 +161,8 @@ var varijabla = angular
                 .controller("kontroler3",function($scope,$timeout,$rootScope){
                     $scope.player1=""
                     $scope.player2=""
+                    
+                    
 
                     $scope.pokreni=function(player1,player2){
                         if(player1!="" && player2!="")
@@ -162,9 +189,9 @@ var varijabla = angular
                     }
                     $scope.okreni=function(broj){
                         if(broj==1)
-                        $scope.stil111={"transform":"rotate(360deg)","transition":"2s"}
+                        $scope.stil111={"transform":"rotate(360deg)","transition":".5s"}
                         else if(broj==2)
-                        $scope.stil222={"transform":"rotate(360deg)","transition":"2s"}
+                        $scope.stil222={"transform":"rotate(360deg)","transition":".5s"}
 
                         if(broj==11)
                         {
