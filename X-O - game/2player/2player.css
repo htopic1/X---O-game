@@ -1,0 +1,231 @@
+#glavni
+{
+    padding-top: 15px;
+    width: fit-content;
+    margin: auto;
+}
+
+/*brise skroll*/
+body::-webkit-scrollbar
+{
+    display: none;
+}
+
+/*poravnava naslove "odaberite avatare" i "odaberite username"*/
+#uvodniPodaci h1
+{
+    margin: 0;
+    text-align: center;
+}
+
+/*animacija linije i tacke*/
+/***************************/
+#linija
+{
+    width: 100vw;
+    height: 5px;
+    background: black;
+    position: relative;
+    filter: blur(2px);
+}
+
+#kocka
+{
+    position: absolute;
+    top: -2px;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 100%;
+    filter: blur(2px);
+    animation: 15s infinite linear running kocka;
+}
+
+@keyframes kocka
+{
+    0% {left: 0vw;}
+    50% {left: 100vw;}
+    100% {left: 0vw;}
+}
+/****************************/
+/****************************************/
+/*kreiranje prvih avatara*/
+#prijePlayer1
+{
+    width: 700px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+}
+
+/*klik lijevo*/
+#dugme1
+{
+    position: absolute;
+    outline: none;
+    left: 75px;
+    margin-top: 6%;
+    cursor: pointer;
+}
+
+/*gradiendi*/
+#sjena
+{
+    position: absolute;
+    z-index: 1;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+}
+#sjena2
+{
+    position: absolute;
+    z-index: 1;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+}
+
+/*dugme desno*/
+#dugme2
+{
+    position: absolute;
+    outline: none;
+    right: 75px;
+    margin-top: 6%;
+    cursor: pointer;
+}
+/****************************************/
+
+#player1
+{
+    overflow: hidden;
+    position: relative;
+    width: 500px;
+    height: 100px;
+    margin: auto;
+}
+
+#prvi5
+{
+    display: flex;
+    position: absolute;
+    right: 0px;
+    transition: .2s;
+    width: 100%;
+    height: 100%;
+    animation: 1s linear 1 animacija1;
+}
+
+#drugi5
+{
+    display: flex;
+    position: absolute;
+    right: -500px;
+    transition: .2s;
+    width: 100%;
+    height: 100%;
+}
+
+.slika
+{
+    position: relative;
+}
+
+.slika img
+{
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.AnSl
+{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.AnSl img
+{
+    width: 25px;
+    height: 25px;
+}
+
+#i1 img, #i2 img
+{
+    width: 21px;
+    height: 21px;
+    vertical-align: bottom;
+    cursor: auto;
+}
+
+table
+{
+    border: solid gray;
+    margin: auto;
+    height: 35px;
+}
+
+td::selection
+{
+    background: transparent;
+}
+
+input
+{
+    text-align: center;
+    border: none;
+    outline: none;
+    height: 19px;
+}
+
+input:focus
+{
+    border-bottom: 1px solid;
+}
+
+#odGumba
+{
+    width: fit-content;
+    margin: auto;
+}
+
+.gumb
+{
+    width: 100px;
+    height: 25px;
+}
+
+@keyframes animacija
+{
+    from {right: 0px}
+    50% {right: 25px}
+    to {right: 0px}
+}
+
+@keyframes animacijaa
+{
+    0% {right: 0px}
+    50% {right: 25px}
+    100% {right: 0px}
+}
+
+@keyframes animacija2
+{
+    0% {left: 0px}
+    50% {left: 25px}
+    100% {left: 0px}
+}
+
+@keyframes animacijaa2
+{
+    0% {left: 0px}
+    50% {left: 25px}
+    100% {left: 0px}
+}
