@@ -1,0 +1,113 @@
+body
+{
+    margin: 0;
+}
+
+#glOkvir
+{
+    display: flex;
+    max-width: 1000px;
+    min-width: 640px;
+    margin: auto;
+}
+
+
+#prviAvatar, #drugiAvatar
+{
+    padding-top: 45px;
+    width: 150px;
+    height: 300px;
+}
+
+.igraci
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100px;
+    font-size: 25px;
+}
+
+#prviAvatar img, #drugiAvatar img
+{
+    border-radius: 100%;
+}
+
+table
+{
+    margin: auto;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+.celija
+{
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    font-family: 'Pacifico', cursive;
+    cursor: pointer;
+}
+
+.celija:hover
+{
+    background: gray;
+}
+
+.celija:active
+{
+    background: black;
+}
+
+.celija::selection
+{
+    background: transparent;
+}
+
+#poruka, #poruka2, #reset
+{
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+p
+{
+    margin: 0px;
+}
+
+#XO
+{
+    width: fit-content;
+    display: flex;
+    margin: auto;
+}
+
+#izlazakPobjede
+{
+    background-color: black;
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    top: 220px;
+    right: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 110px;
+    text-align: center;
+    animation: 4.5s cubic-bezier(0.02, 0.57, 0.99, 0.43) 1 0.5s ;
+    display: none;
+}
+
+@keyframes zaPobjedu
+{
+    0% {right: -100%}
+    100% {right: 100%}
+}

@@ -1,0 +1,53 @@
+<br><br>
+<div ng-controller="kontrolerXiliO" id="selekcija">
+
+    <div id="glOkvir">
+        <div id="prviAvatar">
+            <div><img width="150px" ng-src="{{avatar1}}" alt=""></div>
+            <div class="igraci">{{imeAvatara1}}</div>
+        </div>
+
+        <table>
+            <tr>
+                <td><div ng-click="staviXiliO(0)" class="celija" id="celija0"></div></td>
+                <td><div ng-click="staviXiliO(1)" class="celija" id="celija1"></div></td>
+                <td><div ng-click="staviXiliO(2)" class="celija" id="celija2"></div></td>
+            </tr>
+            <tr>
+                <td><div ng-click="staviXiliO(3)" class="celija" id="celija3"></div></td>
+                <td><div ng-click="staviXiliO(4)" class="celija" id="celija4"></div></td>
+                <td><div ng-click="staviXiliO(5)" class="celija" id="celija5"></div></td>
+            </tr>
+            <tr>
+                <td><div ng-click="staviXiliO(6)" class="celija" id="celija6"></div></td>
+                <td><div ng-click="staviXiliO(7)" class="celija" id="celija7"></div></td>
+                <td><div ng-click="staviXiliO(8)" class="celija" id="celija8"></div></td>
+            </tr>
+        </table>
+
+        <div id="drugiAvatar">
+            <div><img width="150px" ng-src="{{avatar2}}" alt=""></div>
+            <div class="igraci">{{imeAvatara2}}</div>
+        </div>
+    </div>
+
+    <div ng-style="stilPobjede" id="prekrivac"></div>
+    <div ng-style="izlazakPobjede" id="izlazakPobjede"><div id="pobjedaIgraca" ng-style="pobjedaIgraca"></div></div>
+
+    <br>
+    <div id="poruka2"><p>Rezultat je: <br> <div id="XO"><div id="X">(X) 0</div> : <div id="O">0 (O)</div></div></p></div>
+    <br>
+    <div id="poruka"><p>Na redu je: {{imeAvatara1}}</p></div>
+    <br>
+
+    <div id="reset">
+        <!--<button ng-click="newGame()">NOVA IGRA</button>-->
+        <button ng-click="reset()">RESET</button>
+    </div>
+
+    <br>
+
+    <div id="reset">
+        <a href="#!/"><button>MAIN MENU</button></a>
+    </div>
+</div>

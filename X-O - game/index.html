@@ -5,33 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="main/main.css">
     <link rel="stylesheet" href="1player/1player.css">
     <link rel="stylesheet" href="2player/2player.css">
+    <link rel="stylesheet" href="igrica/igrica.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body ng-app="iksOks">
-    <div id="okvir" ng-controller="sakrijMenu" ng-style="stilMenu">
-        <div id="naslov">
-            <p class="posFont">X -- O</p>
-            <p class="posFont2">IKS OKS</p>
-            <p class="posFont2">TIC TAC TOE</p>
-            <br>
-        </div>
-        <br>
-        <div id="okvirOkoStavki">
-            <div><a href="#!singleplayer"><button class="buton" ng-click="sakrij()">SINGLEPLAYER</button></a></div>
-            <div><a href="#!multiplayer"><button class="buton" ng-click="sakrij()">MULTIPLAYER</button></a></div>
-            <div><a href="#!about"><button class="buton" ng-click="sakrij()">ABOUT</button></a></div>
-            <div><a href="#!quit"><button class="buton" ng-click="sakrij()">QUIT</button></a></div>
-        </div>
-    </div>
     <div ng-view></div>
+
     <script src="js.js"></script>
+    <script src="main/main.js"></script>
     <script src="1player/1player.js"></script>
     <script src="2player/2player.js"></script>
+    <script src="igrica/igrica.js"></script>
     
 </body>
 </html>

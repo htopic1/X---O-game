@@ -1,15 +1,15 @@
 var XO=angular.module('iksOks',['ngRoute'])
+
 XO.config(function($routeProvider){
     $routeProvider
+    .when("/", {
+        templateUrl : "main/main.html"
+    })
     .when("/multiplayer", {
         templateUrl : "2player/2player.html"
-    });
+    })
+    .when("/igrica",{
+        templateUrl : "igrica/igrica.html"
+    })
 })
 
-XO.controller('sakrijMenu',function($scope){
-    $scope.sakrij=function()
-    {
-        console.log("haris");
-        $scope.stilMenu={"display":"none"}
-    }
-})

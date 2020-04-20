@@ -5,66 +5,47 @@
         element.html('<p>HARIS{{name}}</p>');
         $compile(element)($scope);
     };
-})
-.run(function($rootScope) {
-    $rootScope.daLiJeOznacenPrviAvatar=false
-    $rootScope.vrijPrvogAvatara=""
-    $rootScope.daLiJeOznacenDrugiAvatar=false
-    $rootScope.vrijDrugogAvatara=""
+})*/
 
+
+XO.run(function($rootScope){
     $rootScope.prvoIme=""
     $rootScope.drugoIme=""
-})*/
-/*
-.controller("kontrolerDugmadi",function($scope){
-    $scope.promjena=function(broj){
-        if(broj==1){
-            $scope.promjena0={"display":"none"}
-            $scope.promjena1={"display":"block"}
-        }
-        else if(broj==2)
-        {
-            $scope.promjena0={"display":"none"}
-            $scope.promjena2={"display":"block"}
-        }
-    }
-    $scope.vratiNazad=function(broj){
-        if(broj==1){
-            $scope.promjena0={"display":"block"}
-            $scope.promjena1={"display":"none"}
-        }
-        else if(broj==2)
-        {
-            $scope.promjena0={"display":"block"}
-            $scope.promjena2={"display":"none"}
-        }
-    }
-})*/
+    $rootScope.prvaSlika=""
+    $rootScope.drugaSlika=""
+})
 
-XO.controller("kontroler",function($scope){
+XO.controller("resetRootScope-a",function($rootScope){
+    $rootScope.prvoIme=""
+    $rootScope.drugoIme=""
+    $rootScope.prvaSlika=""
+    $rootScope.drugaSlika=""
+})
+
+XO.controller("kontrolerPomjeranjaAvatara",function($scope){
     var right1=0;
     var right2=-500;
     var ponavljanje=0;
     var animacija2={
         "right":"0px",
         "animation-duration":"0.15s",
-        "animation-iteration-count":"1",//i ovdje
+        "animation-iteration-count":"1",
         "animation-timing-function":"linear",
         "animation-name":"animacija" 
     }
 
     $scope.naprijed=function()
     {
+        //Pomjeranje naprijed
         if(right1!=500)
         {
-            console.log(right1,right2);
-            
             ponavljanje=0;
             $scope.stil11={"right":right1+100+'px'}
             $scope.stil22={"right":right2+100+'px'}
             right1=right1+100
             right2=right2+100
         }
+        //animacija ako dodje do kraja
         else
         {
             //Varijabla ponavljanje - da se na svaki klik uradi animacija;
@@ -78,6 +59,7 @@ XO.controller("kontroler",function($scope){
     }
     $scope.nazad=function()
     {
+        //pomjeranje nazad
         if(right1!=0)
         {
             ponavljanje=0;
@@ -86,6 +68,7 @@ XO.controller("kontroler",function($scope){
             right1=right1-100
             right2=right2-100
         }
+        //animacija ako dodje do kraja
         else
         {
             //Varijabla ponavljanje - da se na svaki klik uradi animacija;
@@ -99,16 +82,60 @@ XO.controller("kontroler",function($scope){
     }
 })
 
-XO.controller("kontroler2",function($scope,$rootScope){
+XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
+    
+    //pamtilo koji je hoverovan
     var hoverovano=[hoverovano0=false,hoverovano1=false,hoverovano2=false,hoverovano3=false,hoverovano4=false,hoverovano5=false,hoverovano6=false,hoverovano7=false,hoverovano8=false,hoverovano9=false,hoverovano10=false]
+    
+    //id-evi za prvi red
     var divovi=["#nulti","#prvi","#drugi","#treci","#cetvrti","#peti","#sesti","#sedmi","#osmi","#deveti",]
+    
+    //id-evi za drugi red
     var divovi2=["#nulti0","#prvi1","#drugi2","#treci3","#cetvrti4","#peti5","#sesti6","#sedmi7","#osmi8","#deveti9",]
+    
+    //niz za $rootScope.prvaSlika i $rootScope.drugaSlika
     var slike=["Avatars/PUBG.jpg","Avatars/1.jpg","Avatars/2.png","Avatars/3.jpg","Avatars/4.png","Avatars/5.png","Avatars/6.jpg","Avatars/7.png","Avatars/8.png","Avatars/9.jpg"]
+    
+    //provjera da li je hoverovana slika
     var daLiJeHoverovano=false
-    $scope.hoveruj=function(redniBroj,redniBroj2)
+    $scope.hoveruj=function(prviIliDrugiRed,redniBroj,redniBroj2)
     {
+        
         if(daLiJeHoverovano==false)
         {
+            zapamtiPrvuIDruguSliku(prviIliDrugiRed,redniBroj)
+            oznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano)
+            
+            daLiJeHoverovano=true
+            return {"opacity":".25"}
+            
+        }
+
+        else if(hoverovano[redniBroj]==true)
+        {
+            odpamtiPrvuIDruguSliku(prviIliDrugiRed)
+            odOznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano)
+
+            hoverovano[redniBroj]=false
+            daLiJeHoverovano=false
+            return {"opacity":"1"}
+        }
+
+        function zapamtiPrvuIDruguSliku(prviIliDrugiRed,redniBroj){
+            if(prviIliDrugiRed==1)
+            $rootScope.prvaSlika=slike[redniBroj+1]
+            else
+            $rootScope.drugaSlika=slike[redniBroj+1]
+        }
+        
+        function odpamtiPrvuIDruguSliku(prviIliDrugiRed){
+            if(prviIliDrugiRed==1)
+            $rootScope.prvaSlika=""
+            else
+            $rootScope.drugaSlika=""
+        }
+
+        function oznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano){
             for (var i=0;i<hoverovano.length;i++) {
                 if(i==redniBroj)
                 {
@@ -116,65 +143,51 @@ XO.controller("kontroler2",function($scope,$rootScope){
                     {
                         var element=angular.element($(divovi[i]))
                         element.html("<img src='/X-O - game/checkSign.png'>")
-                        $rootScope.daLiJeOznacenPrviAvatar=true
-                        $rootScope.vrijPrvogAvatara=slike[i]
                     }
                     else
                     {
                         var element=angular.element($(divovi2[i]))
                         element.html("<img src='checkSign.png'>")
-                        $rootScope.daLiJeOznacenDrugiAvatar=true
-                        $rootScope.vrijDrugogAvatara=slike[i]
                     }
-
-                    daLiJeHoverovano=true
-                    hoverovano[i]=true
-                    return {"opacity":".25"}
                 }
+                hoverovano[i]=true
             }
         }
 
-        else if(hoverovano[redniBroj]==true)
-        {
+        function odOznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano){
             if(redniBroj2<10)
             {
                 var element=angular.element($(divovi[redniBroj]))
                 element.html("")
-                $rootScope.daLiJeOznacenPrviAvatar=false
-                $rootScope.vrijPrvogAvatara=""
             }
             else
             {
                 var element=angular.element($(divovi2[redniBroj]))
                 element.html("")
-                $rootScope.daLiJeOznacenDrugiAvatar=false
-                $rootScope.vrijDrugogAvatara=""
             }
-
-            hoverovano[redniBroj]=false
-            daLiJeHoverovano=false
-            return {"opacity":"1"}
         }
+        
     }
 })
 
 XO.controller("kontroler3",function($scope,$timeout,$rootScope){
     $scope.player1=""
     $scope.player2=""
-
+    
     $scope.pokreni=function(player1,player2){
         if(player1!="" && player2!="")
         {
-            $rootScope.prvoIme=player1;
-            $rootScope.drugoIme=player2;
+            $rootScope.prvoIme=player1
+            $rootScope.drugoIme=player2
+
+            //popravit kasnije
+            /*
             $scope.stilEkrana={
                 "transition":"3s",
                 "background":"black",
                 "filter":"brightness(.0)"
             }
-            var stilEkrana2=$timeout(callTimeout,3000)
-
-            function callTimeout(){
+            $timeout(function(){
                 $scope.sakrij={"display":"none"}
                 $scope.otkrij={"display":"block"}
                 $scope.stilEkrana={
@@ -182,9 +195,12 @@ XO.controller("kontroler3",function($scope,$timeout,$rootScope){
                     "background":"white",
                     "filter":"brightness(1)"
                 }
-            }
+            },3000)
+            */
         }
     }
+
+    //zaOkretanjeSlike
     $scope.okreni=function(broj){
         if(broj==1)
         $scope.stil111={"transform":"rotate(360deg)","transition":".5s"}
@@ -195,13 +211,13 @@ XO.controller("kontroler3",function($scope,$timeout,$rootScope){
         {
             $timeout(function(){
                 $scope.stil111=""
-            },2000)
+            },500)
         }
         else if(broj==22)
         {
             $timeout(function(){
                 $scope.stil222=""
-            },2000)
+            },500)
         }
     }
 })
