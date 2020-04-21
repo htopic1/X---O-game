@@ -14,6 +14,7 @@ body::-webkit-scrollbar
 /*poravnava naslove "odaberite avatare" i "odaberite username"*/
 #uvodniPodaci h1
 {
+    color: #afafaf;;
     margin: 0;
     text-align: center;
 }
@@ -24,7 +25,7 @@ body::-webkit-scrollbar
 {
     width: 100vw;
     height: 5px;
-    background: black;
+    background:  rgb(88, 88, 88);
     position: relative;
     filter: blur(2px);
 }
@@ -35,7 +36,7 @@ body::-webkit-scrollbar
     top: -2px;
     width: 10px;
     height: 10px;
-    background: black;
+    background:  rgb(129, 129, 129);
     border-radius: 100%;
     filter: blur(2px);
     animation: 15s infinite linear running kocka;
@@ -63,31 +64,11 @@ body::-webkit-scrollbar
 {
     position: absolute;
     outline: none;
-    left: 75px;
+    left: 50px;
     margin-top: 6%;
     cursor: pointer;
-}
-
-/*gradiendi*/
-#sjena
-{
-    position: absolute;
-    z-index: 1;
-    left: 100px;
-    width: 100px;
-    height: 100px;
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
-}
-#sjena2
-{
-    position: absolute;
-    z-index: 1;
-    right: 100px;
-    width: 100px;
-    height: 100px;
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+    background: rgb(88, 88, 88);
+    border: none;
 }
 
 /*dugme desno*/
@@ -95,9 +76,16 @@ body::-webkit-scrollbar
 {
     position: absolute;
     outline: none;
-    right: 75px;
+    right: 50px;
     margin-top: 6%;
     cursor: pointer;
+    background: rgb(88, 88, 88);
+    border: none;
+}
+
+#dugme1:hover, #dugme2:hover
+{
+    background: gray;
 }
 /****************************************/
 
@@ -164,9 +152,10 @@ body::-webkit-scrollbar
     cursor: auto;
 }
 
-table
+#tabelaPlayer2
 {
-    border: solid gray;
+    background: rgb(88, 88, 88);
+    border: 1px solid gray;
     margin: auto;
     height: 35px;
 }
@@ -181,24 +170,29 @@ input
     text-align: center;
     border: none;
     outline: none;
-    height: 19px;
-}
-
-input:focus
-{
-    border-bottom: 1px solid;
+    font-size: 15px;
 }
 
 #odGumba
 {
     width: fit-content;
     margin: auto;
+    display: flex;
 }
 
 .gumb
 {
+    background: rgb(88, 88, 88);
+    border: none;
+    cursor: pointer;
     width: 100px;
     height: 25px;
+    border-radius: 10px;
+}
+
+.gumb:hover
+{
+    background: gray;
 }
 
 @keyframes animacija
@@ -227,4 +221,45 @@ input:focus
     0% {left: 0px}
     50% {left: 25px}
     100% {left: 0px}
+}
+
+#zaCrveneOkvirove
+{
+    position: relative;
+}
+
+#crveniOkvir1
+{
+    width: 600px;
+    height: 100px;
+    border: 1px solid red;
+    position: absolute;
+    top: -333px;
+    right: 383px;
+    z-index: -1;
+    display: none;
+}
+
+#crveniOkvir2
+{
+    width: 600px;
+    height: 100px;
+    border: 1px solid red;
+    position: absolute;
+    top: -215px;
+    right: 383px;
+    z-index: -1;
+    display: none;
+}
+
+#pravoDugme
+{
+    display: none;
+}
+
+#problem1, #problem2
+{
+    color: red;
+    text-align: center;
+    display: none;
 }

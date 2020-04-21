@@ -11,31 +11,43 @@ body
     margin: auto;
 }
 
-
 #prviAvatar, #drugiAvatar
 {
+    background: url(/X-O\ -\ game/patterns/dark-wood.jpg);
+    border: 3px solid black;
+    border-radius: 10px;
     padding-top: 45px;
-    width: 150px;
+    width: 200px;
     height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .igraci
 {
+    background: gray;
+    font-family: 'Indie Flower', cursive;
+    border: 1px solid black;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 100px;
+    width: 100px;
+    height: 50px;
     font-size: 25px;
 }
 
 #prviAvatar img, #drugiAvatar img
 {
+    border: 3px solid gray;
     border-radius: 100%;
 }
 
-table
+#tabelaIgrica
 {
+    background: rgb(88, 88, 88);
     margin: auto;
     border-collapse: collapse;
     border: 2px solid black;
@@ -69,7 +81,21 @@ table
     background: transparent;
 }
 
-#poruka, #poruka2, #reset
+#poruka
+{
+    font-family: 'Indie Flower', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #808080;
+    width: 200px;
+    height: 30px;
+    margin: auto;
+    text-align: center;
+}
+
+#poruka2, #reset
 {
     width: fit-content;
     margin: auto;
@@ -90,6 +116,7 @@ p
 
 #izlazakPobjede
 {
+    z-index: 4;
     background-color: black;
     width: 100%;
     height: 150px;
@@ -110,4 +137,100 @@ p
 {
     0% {right: -100%}
     100% {right: 100%}
+}
+
+#X, #O, #dvotacka
+{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+#poruka2
+{
+    background: rgb(88, 88, 88);
+    position: relative;
+    border: 1px solid black;
+    overflow: hidden;
+    height: 100px;
+}
+
+#padajuciX, #padajuciO
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    background: black;
+    top: -50px;
+    color: white;
+}
+
+#padajuciO
+{
+    z-index: 1;
+    right: 0px;
+    animation: 2s 1 /*padajuciO*/;
+}
+
+#padajuciX
+{
+    z-index: 1;
+    animation: 2s 1 /*padajuciX*/;
+}
+
+@keyframes padajuciX
+{
+    0% {top: -50px;}
+    100% {top: 35px;}
+}
+
+@keyframes padajuciXX
+{
+    0% {top: -50px;}
+    100% {top: 35px;}
+}
+
+@keyframes padajuciO
+{
+    0% {top: -50px;}
+    100% {top: 35px;}
+}
+
+@keyframes padajuciOO
+{
+    0% {top: -50px;}
+    100% {top: 35px;}
+}
+
+#scoreboard
+{
+    position: relative;
+    background: black;
+    color: rgb(156, 155, 155);
+    width: 100%;
+    height: 17px;
+    z-index: 2;
+    border-bottom: 1px solid black;
+}
+
+#butonIgrica
+{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    background: rgb(88, 88, 88);
+    border: none;
+    cursor: pointer;
+}
+
+#butonIgrica:hover
+{
+    background: gray;
 }

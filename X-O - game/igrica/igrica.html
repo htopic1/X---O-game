@@ -1,13 +1,13 @@
-<br><br>
-<div ng-controller="kontrolerXiliO" id="selekcija">
-
+<div ng-controller="resetRT"></div>
+<div ng-controller="kontrolerXiliO">
+    <br><br>
     <div id="glOkvir">
-        <div id="prviAvatar">
-            <div><img width="150px" ng-src="{{avatar1}}" alt=""></div>
+        <div ng-style="prviAvatarPotez" id="prviAvatar">
+            <div><img width="150px" ng-src="{{avatar1}}" alt=""></div><br><br>
             <div class="igraci">{{imeAvatara1}}</div>
         </div>
 
-        <table>
+        <table id="tabelaIgrica">
             <tr>
                 <td><div ng-click="staviXiliO(0)" class="celija" id="celija0"></div></td>
                 <td><div ng-click="staviXiliO(1)" class="celija" id="celija1"></div></td>
@@ -25,29 +25,29 @@
             </tr>
         </table>
 
-        <div id="drugiAvatar">
-            <div><img width="150px" ng-src="{{avatar2}}" alt=""></div>
+        <div ng-style="drugiAvatarPotez" id="drugiAvatar">
+            <div><img width="150px" ng-src="{{avatar2}}" alt=""></div><br><br>
             <div class="igraci">{{imeAvatara2}}</div>
         </div>
     </div>
 
     <div ng-style="stilPobjede" id="prekrivac"></div>
-    <div ng-style="izlazakPobjede" id="izlazakPobjede"><div id="pobjedaIgraca" ng-style="pobjedaIgraca"></div></div>
+    <div ng-style="izlazakPobjede" id="izlazakPobjede">
+        <div id="pobjedaIgraca" ng-style="pobjedaIgraca"></div>
+    </div>
 
     <br>
-    <div id="poruka2"><p>Rezultat je: <br> <div id="XO"><div id="X">(X) 0</div> : <div id="O">0 (O)</div></div></p></div>
+    <div id="poruka2"><div id="scoreboard">SCOREBOARD</div><br><div id="XO"><div ng-style="X" id="X">0</div><div ng-style="padajuciX" id="padajuciX">0</div><div id="dvotacka">:</div><div ng-style="O" id="O">0</div><div ng-style="padajuciO" id="padajuciO">0</div></div></div>
     <br>
     <div id="poruka"><p>Na redu je: {{imeAvatara1}}</p></div>
     <br>
 
     <div id="reset">
-        <!--<button ng-click="newGame()">NOVA IGRA</button>-->
-        <button ng-click="reset()">RESET</button>
+        <button id="butonIgrica" ng-click="newGame()">NOVA IGRA</button>
+        <button id="butonIgrica" ng-click="reset()">RESET</button>
     </div>
-
     <br>
-
     <div id="reset">
-        <a href="#!/"><button>MAIN MENU</button></a>
+        <a href="#!/"><button id="butonIgrica">MAIN MENU</button></a>
     </div>
 </div>

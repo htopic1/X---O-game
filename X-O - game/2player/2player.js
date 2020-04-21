@@ -13,6 +13,9 @@ XO.run(function($rootScope){
     $rootScope.drugoIme=""
     $rootScope.prvaSlika=""
     $rootScope.drugaSlika=""
+    $rootScope.daLiJeHoverovnoRT=false
+    $rootScope.prviRedRT=false
+    $rootScope.drugiRedRT=false
 })
 
 XO.controller("resetRootScope-a",function($rootScope){
@@ -20,6 +23,9 @@ XO.controller("resetRootScope-a",function($rootScope){
     $rootScope.drugoIme=""
     $rootScope.prvaSlika=""
     $rootScope.drugaSlika=""
+    $rootScope.daLiJeHoverovnoRT=false
+    $rootScope.prviRedRT=false
+    $rootScope.drugiRedRT=false
 })
 
 XO.controller("kontrolerPomjeranjaAvatara",function($scope){
@@ -107,6 +113,7 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
             oznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano)
             
             daLiJeHoverovano=true
+            $rootScope.daLiJeHoverovnoRT=true
             return {"opacity":".25"}
             
         }
@@ -118,21 +125,32 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
 
             hoverovano[redniBroj]=false
             daLiJeHoverovano=false
+            $rootScope.daLiJeHoverovnoRT=false
             return {"opacity":"1"}
         }
 
         function zapamtiPrvuIDruguSliku(prviIliDrugiRed,redniBroj){
-            if(prviIliDrugiRed==1)
-            $rootScope.prvaSlika=slike[redniBroj+1]
-            else
-            $rootScope.drugaSlika=slike[redniBroj+1]
+            if(prviIliDrugiRed==1){
+                $rootScope.prvaSlika=slike[redniBroj+1]
+                $rootScope.prviRedRT=true
+            }
+            else{
+                $rootScope.drugaSlika=slike[redniBroj+1]
+                $rootScope.drugiRedRT=true
+            }
         }
         
         function odpamtiPrvuIDruguSliku(prviIliDrugiRed){
-            if(prviIliDrugiRed==1)
-            $rootScope.prvaSlika=""
-            else
-            $rootScope.drugaSlika=""
+            if(prviIliDrugiRed==1){
+                $rootScope.prvaSlika=""
+                $rootScope.prviRedRT=false
+            }
+            
+            else{
+                $rootScope.drugaSlika=""
+                $rootScope.drugiRedRT=false
+            }
+            
         }
 
         function oznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano){
@@ -170,33 +188,69 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
     }
 })
 
-XO.controller("kontroler3",function($scope,$timeout,$rootScope){
+XO.controller("kontroler3",function($scope,$interval,$rootScope,$timeout){
     $scope.player1=""
     $scope.player2=""
-    
+
+    //za promjenu laznog u pravo dugme
+    $interval(function(){
+
+        var player11=$scope.player1
+        var player22=$scope.player2
+        
+        if(player11!="" && player22!="" && $rootScope.prvaSlika!="" && $rootScope.drugaSlika!="")
+        {
+            $scope.laznoDugme={"display":"none"}
+            $scope.pravoDugme={"display":"block"}
+        }
+        else
+        {
+            $scope.laznoDugme={"display":"block"}
+            $scope.pravoDugme={"display":"none"}
+        }
+    },0)
+
+    //////////////////////////////////////
+    //Ako je dugme pravo, uzima podatke, a ako nije oznacva prazna polja
     $scope.pokreni=function(player1,player2){
-        if(player1!="" && player2!="")
+        if(player1!="" && player2!="" && $rootScope.prvaSlika!="" && $rootScope.drugaSlika!="")
         {
             $rootScope.prvoIme=player1
             $rootScope.drugoIme=player2
+        }
 
-            //popravit kasnije
-            /*
-            $scope.stilEkrana={
-                "transition":"3s",
-                "background":"black",
-                "filter":"brightness(.0)"
-            }
-            $timeout(function(){
-                $scope.sakrij={"display":"none"}
-                $scope.otkrij={"display":"block"}
-                $scope.stilEkrana={
-                    "transition":"3s",
-                    "background":"white",
-                    "filter":"brightness(1)"
+        else {
+            if($rootScope.prvaSlika!="" && $rootScope.drugaSlika!=""){console.log("haris");
+            $scope.problem2={"display":"none"}}
+            else
+            {
+                console.log("ddddaaaaaaaaaaaaa");
+                
+                if($rootScope.prvaSlika==""){
+                    $scope.missing1={"display":"block","z-index":"1"}
+                    $scope.problem2={"display":"block"}
                 }
-            },3000)
-            */
+                else{$scope.missing1=""}
+                if($rootScope.drugaSlika==""){
+                    $scope.missing2={"display":"block","z-index":"1"}
+                    $scope.problem2={"display":"block"}
+                }
+                else{$scope.missing2=""}
+            }
+            if(player1!="" && player2!=""){$scope.problem1={"display":"none"}}
+            else
+            {
+                if(player1==""){
+                    $scope.missing3={"border":"solid 1px red"}
+                    $scope.problem1={"display":"block"}
+                }
+                else{$scope.missing3=""}
+                if(player2==""){
+                    $scope.missing4={"border":"solid 1px red"}
+                    $scope.problem1={"display":"block"}
+                }
+                else{$scope.missing4=""}
+            }
         }
     }
 
@@ -207,17 +261,40 @@ XO.controller("kontroler3",function($scope,$timeout,$rootScope){
         else if(broj==2)
         $scope.stil222={"transform":"rotate(360deg)","transition":".5s"}
 
-        if(broj==11)
+        if(broj==1)
         {
             $timeout(function(){
+                console.log("haris");
+                
                 $scope.stil111=""
             },500)
         }
-        else if(broj==22)
+        else if(broj==2)
         {
             $timeout(function(){
                 $scope.stil222=""
             },500)
         }
+    }
+    //ugasit upaljene okvire
+    $interval(function(){
+        if($rootScope.prviRedRT==true)
+        $scope.missing1=""
+    },0)
+    $interval(function(){
+        if($rootScope.drugiRedRT==true)
+        $scope.missing2=""
+    },0)
+    $scope.ugasiOkvir3=function(){
+        $scope.missing3=""
+    }
+    $scope.ugasiOkvir4=function(){
+        $scope.missing4=""
+    }
+    $scope.spustiZindex1=function(){
+        $scope.missing1={"display":"block","z-index":"-1"}
+    }
+    $scope.spustiZindex2=function(){
+        $scope.missing2={"display":"block","z-index":"-1"}
     }
 })

@@ -16,6 +16,7 @@
 
 .posFont
 {
+    color: white;
     width: 312px;
     text-align: center;
     font-size: 50px;
@@ -25,6 +26,7 @@
 
 .posFont2
 {
+    color: white;
     font-family: 'Indie Flower';
     text-align: center;
     font-size: 15px;
@@ -47,6 +49,8 @@
     margin: 5px;
     border-radius: 10px;
     outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 .buton:hover

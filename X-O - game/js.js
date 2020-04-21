@@ -5,6 +5,9 @@ XO.config(function($routeProvider){
     .when("/", {
         templateUrl : "main/main.html"
     })
+    .when("/singleplayer",{
+        templateUrl : "1player/1player.html"
+    })
     .when("/multiplayer", {
         templateUrl : "2player/2player.html"
     })
