@@ -220,22 +220,22 @@ XO.controller("kontroler3",function($scope,$interval,$rootScope,$timeout){
         }
 
         else {
-            if($rootScope.prvaSlika!="" && $rootScope.drugaSlika!=""){console.log("haris");
-            $scope.problem2={"display":"none"}}
+            if($rootScope.prvaSlika!="" && $rootScope.drugaSlika!="")
+            $scope.problem2={"display":"none"}
             else
             {
-                console.log("ddddaaaaaaaaaaaaa");
-                
+                //iskljucen je crveni okvir
+
                 if($rootScope.prvaSlika==""){
-                    $scope.missing1={"display":"block","z-index":"1"}
+                    //$scope.missing1={"display":"block","z-index":"1"}
                     $scope.problem2={"display":"block"}
                 }
-                else{$scope.missing1=""}
+                //else{$scope.missing1=""}
                 if($rootScope.drugaSlika==""){
-                    $scope.missing2={"display":"block","z-index":"1"}
+                    //$scope.missing2={"display":"block","z-index":"1"}
                     $scope.problem2={"display":"block"}
                 }
-                else{$scope.missing2=""}
+                //else{$scope.missing2=""}
             }
             if(player1!="" && player2!=""){$scope.problem1={"display":"none"}}
             else
@@ -264,8 +264,6 @@ XO.controller("kontroler3",function($scope,$interval,$rootScope,$timeout){
         if(broj==1)
         {
             $timeout(function(){
-                console.log("haris");
-                
                 $scope.stil111=""
             },500)
         }

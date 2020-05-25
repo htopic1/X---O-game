@@ -51,6 +51,7 @@
     outline: none;
     border: none;
     cursor: pointer;
+    background-color: rgb(88, 88, 88);
 }
 
 .buton:hover

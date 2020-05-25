@@ -15,4 +15,3 @@ XO.config(function($routeProvider){
         templateUrl : "igrica/igrica.html"
     })
 })
-

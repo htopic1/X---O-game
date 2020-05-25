@@ -1,53 +1,56 @@
-<div ng-controller="resetRT"></div>
-<div ng-controller="kontrolerXiliO">
-    <br><br>
-    <div id="glOkvir">
-        <div ng-style="prviAvatarPotez" id="prviAvatar">
-            <div><img width="150px" ng-src="{{avatar1}}" alt=""></div><br><br>
-            <div class="igraci">{{imeAvatara1}}</div>
+<div ng-controller="resetRT">
+    <div ng-controller="kontrolerXiliO" ng-style="zaUklonitiAkoNemaImena">
+        <br><br>
+        <div id="glOkvir">
+            <div ng-style="prviAvatarPotez" id="prviAvatar">
+                <div><img width="150px" ng-src="{{avatar1}}" alt=""></div><br><br>
+                <div class="igraci">{{imeAvatara1}}</div>
+            </div>
+
+            <table id="tabelaIgrica">
+                <tr>
+                    <td><div ng-click="staviXiliO(0)" ng-style="0" class="celija" id="celija0"></div></td>
+                    <td><div ng-click="staviXiliO(1)" class="celija" id="celija1"></div></td>
+                    <td><div ng-click="staviXiliO(2)" class="celija" id="celija2"></div></td>
+                </tr>
+                <tr>
+                    <td><div ng-click="staviXiliO(3)" class="celija" id="celija3"></div></td>
+                    <td><div ng-click="staviXiliO(4)" class="celija" id="celija4"></div></td>
+                    <td><div ng-click="staviXiliO(5)" class="celija" id="celija5"></div></td>
+                </tr>
+                <tr>
+                    <td><div ng-click="staviXiliO(6)" class="celija" id="celija6"></div></td>
+                    <td><div ng-click="staviXiliO(7)" class="celija" id="celija7"></div></td>
+                    <td><div ng-click="staviXiliO(8)" class="celija" id="celija8"></div></td>
+                </tr>
+            </table>
+
+            <div ng-style="drugiAvatarPotez" id="drugiAvatar">
+                <div><img width="150px" ng-src="{{avatar2}}" alt=""></div><br><br>
+                <div class="igraci">{{imeAvatara2}}</div>
+            </div>
         </div>
 
-        <table id="tabelaIgrica">
-            <tr>
-                <td><div ng-click="staviXiliO(0)" class="celija" id="celija0"></div></td>
-                <td><div ng-click="staviXiliO(1)" class="celija" id="celija1"></div></td>
-                <td><div ng-click="staviXiliO(2)" class="celija" id="celija2"></div></td>
-            </tr>
-            <tr>
-                <td><div ng-click="staviXiliO(3)" class="celija" id="celija3"></div></td>
-                <td><div ng-click="staviXiliO(4)" class="celija" id="celija4"></div></td>
-                <td><div ng-click="staviXiliO(5)" class="celija" id="celija5"></div></td>
-            </tr>
-            <tr>
-                <td><div ng-click="staviXiliO(6)" class="celija" id="celija6"></div></td>
-                <td><div ng-click="staviXiliO(7)" class="celija" id="celija7"></div></td>
-                <td><div ng-click="staviXiliO(8)" class="celija" id="celija8"></div></td>
-            </tr>
-        </table>
-
-        <div ng-style="drugiAvatarPotez" id="drugiAvatar">
-            <div><img width="150px" ng-src="{{avatar2}}" alt=""></div><br><br>
-            <div class="igraci">{{imeAvatara2}}</div>
+        <div ng-style="izlazakPobjede" id="izlazakPobjede">
+            <div id="pobjedaIgraca" ng-style="pobjedaIgraca"></div>
         </div>
-    </div>
 
-    <div ng-style="stilPobjede" id="prekrivac"></div>
-    <div ng-style="izlazakPobjede" id="izlazakPobjede">
-        <div id="pobjedaIgraca" ng-style="pobjedaIgraca"></div>
-    </div>
+        <br>
+        <div id="poruka2"><div id="scoreboard">SCOREBOARD</div><br><div id="XO"><div ng-style="X" id="X">0</div><div ng-style="padajuciX" id="padajuciX">0</div><div id="dvotacka">:</div><div ng-style="O" id="O">0</div><div ng-style="padajuciO" id="padajuciO">0</div></div></div>
+        
+        <br>
+        <div id="poruka"><p>Na redu je: {{imeAvatara1}}</p></div>
+        <br>
 
-    <br>
-    <div id="poruka2"><div id="scoreboard">SCOREBOARD</div><br><div id="XO"><div ng-style="X" id="X">0</div><div ng-style="padajuciX" id="padajuciX">0</div><div id="dvotacka">:</div><div ng-style="O" id="O">0</div><div ng-style="padajuciO" id="padajuciO">0</div></div></div>
-    <br>
-    <div id="poruka"><p>Na redu je: {{imeAvatara1}}</p></div>
-    <br>
-
-    <div id="reset">
-        <button id="butonIgrica" ng-click="newGame()">NOVA IGRA</button>
-        <button id="butonIgrica" ng-click="reset()">RESET</button>
+        <div id="reset">
+            <button id="butonIgrica" ng-click="newGame()" ng-disabled="iskljucitiDugme" >CONTINUE</button>
+            <button id="butonIgrica" ng-click="reset()" ng-disabled="iskljucitiDugme">RESET</button>
+        </div>
+        <br>
+        <div id="reset">
+            <a href="#!/"><button id="butonIgrica">MAIN MENU</button></a>
+        </div>
+    
     </div>
-    <br>
-    <div id="reset">
-        <a href="#!/"><button id="butonIgrica">MAIN MENU</button></a>
-    </div>
+    <div id="defaultLink"></div>
 </div>

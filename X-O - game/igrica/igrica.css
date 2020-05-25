@@ -114,6 +114,14 @@ p
     margin: auto;
 }
 
+#mrakOkoPobjede
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    filter: opacity(.5);
+}
+
 #izlazakPobjede
 {
     z-index: 4;
@@ -129,7 +137,7 @@ p
     align-items: center;
     font-size: 110px;
     text-align: center;
-    animation: 4.5s cubic-bezier(0.02, 0.57, 0.99, 0.43) 1 0.5s ;
+    animation: 4.5s cubic-bezier(0.02, 0.57, 0.99, 0.43) 1 0.5s;
     display: none;
 }
 
@@ -233,4 +241,15 @@ p
 #butonIgrica:hover
 {
     background: gray;
+}
+
+#defaultLink
+{
+    text-align: center;
+    color: gray;
+}
+
+#defaultLink a
+{
+    color: gray;
 }

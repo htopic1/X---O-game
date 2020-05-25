@@ -12,47 +12,66 @@ XO.run(function($rootScope){
     $rootScope.oznacenaPolja=[false,false,false,false,false,false,false,false,false]
     $rootScope.oznacenaPoljaSaXiliO=["","","","","","","","",""]
     $rootScope.kombinacije=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    $rootScope.pobjeda=false
+    //definise se da bi se mogla izbrisat pri resetu
+    $rootScope.zaIzbrisatTimeout
 })
 
-.controller("resetRT",function($rootScope){
-    //prva igra,prva pravila
-    $rootScope.prviIgrac='X'
-    ////////////////////////
-    $rootScope.brojacPobjedaX=0
-    $rootScope.brojacPobjedaO=0
-    $rootScope.brojacX=0
-    $rootScope.brojacO=0
-    $rootScope.XiliO='X'
-    $rootScope.oznacenaPolja=[false,false,false,false,false,false,false,false,false]
-    $rootScope.oznacenaPoljaSaXiliO=["","","","","","","","",""]
-    $rootScope.kombinacije=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+.controller("resetRT",function($rootScope,$scope){
+    
+    if($rootScope.prvoIme=="" || $rootScope.drugoIme=="" || $rootScope.prvaSlika=="" || $rootScope.drugaSlika=="")
+    {
+        $scope.zaUklonitiAkoNemaImena={"display":"none"}
+        var element=angular.element($("#defaultLink"))
+        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Nazad na <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
+    }
+    else
+    {
+        //prva igra,prva pravila
+        $rootScope.prviIgrac='X'
+        ////////////////////////
+        $rootScope.brojacPobjedaX=0
+        $rootScope.brojacPobjedaO=0
+        $rootScope.brojacX=0
+        $rootScope.brojacO=0
+        $rootScope.XiliO='X'
+        $rootScope.oznacenaPolja=[false,false,false,false,false,false,false,false,false]
+        $rootScope.oznacenaPoljaSaXiliO=["","","","","","","","",""]
+        $rootScope.kombinacije=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+        $rootScope.pobjeda=false
+    }
+    
 })
 
-.controller("kontrolerXiliO",function($scope,$rootScope,$timeout,$compile){
+.controller("kontrolerXiliO",function($scope,$rootScope,$timeout,$interval,$compile){
 
+    //crveni okvir oko prvog igraca na pocetku igre
     $scope.prviAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
 
+    //za promjenu dugmeta "continue" i "reset"
+    $interval(function(){
+        if($rootScope.brojacO==0 && $rootScope.brojacX==0)
+        $scope.iskljucitiDugme=true
+        else
+        $scope.iskljucitiDugme=false
+    },0)
+    
+    //glavni kod
     $scope.staviXiliO=function(broj){
+
+        if($rootScope.pobjeda==false)
         var daIliNe=postaviXiliOuTabelu(broj)
+        else
+        var daIliNe=true
+
         if(daIliNe==false)
         {
-            var pobjeda=provjeraPobjeda()
-            if(pobjeda==false)
+            $rootScope.pobjeda=provjeraPobjeda()
+            
+            if($rootScope.pobjeda==false)
             {
                 promjenaXiliO()
                 promjenaIgraca()
-            }
-            else
-            {
-                $scope.stilPobjede={
-                    "background":"transparent",
-                    "position":"absolute",
-                    "width":"316px",
-                    "height":"316px",
-                    "top":"54px",
-                    "left":"525px"
-                }
-                //$scope.newGame()
             }
         }
     }
@@ -105,13 +124,12 @@ XO.run(function($rootScope){
             var a=$rootScope.kombinacije[i][0]
             var b=$rootScope.kombinacije[i][1]
             var c=$rootScope.kombinacije[i][2]
-            
+
             if($rootScope.oznacenaPolja[a]==true && $rootScope.oznacenaPolja[b]==true && $rootScope.oznacenaPolja[c]==true && $rootScope.oznacenaPoljaSaXiliO[a]==$rootScope.oznacenaPoljaSaXiliO[b] && $rootScope.oznacenaPoljaSaXiliO[a]==$rootScope.oznacenaPoljaSaXiliO[c])
             {
-                //ovo je bilo izbrisano
-                //$scope.pobjedaIgraca={}
-                
                 var element=angular.element($('#pobjedaIgraca'))
+                
+                //ko je pobijedio...
                 if($rootScope.oznacenaPoljaSaXiliO[a]=='X')
                 {
                     element.html('Bravooooo {{imeAvatara1}}')
@@ -133,8 +151,6 @@ XO.run(function($rootScope){
                 if($rootScope.oznacenaPoljaSaXiliO[a]=='X')
                 {
                     $rootScope.brojacPobjedaX++
-                    console.log($rootScope.brojacPobjedaX);
-                    
                     $rootScope.brojacX++;
 
                     var element2=angular.element($("#padajuciX"))
@@ -147,7 +163,7 @@ XO.run(function($rootScope){
                     else
                     $scope.padajuciX={"animation-name":"padajuciXX"}
                     
-                    $timeout(function(){
+                    $rootScope.zaIzbrisatTimeout=$timeout(function(){
                         $scope.X={"background":"black","color":"white"}
                         var element=angular.element($("#X"))
                         element.html($rootScope.brojacX)
@@ -181,6 +197,15 @@ XO.run(function($rootScope){
                         },1000)
                     },2000)
                 }
+                /*$scope.stilPobjede={
+                    "background":"transparent",
+                    "position":"absolute",
+                    "width":"316px",
+                    "height":"316px",
+                    "top":"54px",
+                    "left":"525px"
+                }*/
+                //$scope.newGame()
                 return true
             }
         }
@@ -188,6 +213,9 @@ XO.run(function($rootScope){
     }
 
     $scope.newGame=function(){
+        //reset pobjede
+        $rootScope.pobjeda=false
+
         //reset svih polja na prazno
         for(var i=0;i<9;i++)
         {
@@ -224,6 +252,13 @@ XO.run(function($rootScope){
     }
 
     $scope.reset=function(){
+        //reset pobjede
+        $rootScope.pobjeda=false
+
+        //sklanjanje pobjede instant
+        $scope.izlazakPobjede={"display":"none"}
+        $timeout.cancel($rootScope.zaIzbrisatTimeout)
+
         //reset svih polja na prazno
         for(var i=0;i<9;i++)
         {
