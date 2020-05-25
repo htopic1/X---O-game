@@ -160,7 +160,7 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
                     if(redniBroj2<10)
                     {
                         var element=angular.element($(divovi[i]))
-                        element.html("<img src='/X-O - game/checkSign.png'>")
+                        element.html("<img src='checkSign.png'>")
                     }
                     else
                     {
