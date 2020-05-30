@@ -3,17 +3,42 @@ body
     margin: 0;
 }
 
+#pomjeritiNaSredinu
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#zatamnit
+{
+    position: fixed;
+    filter: opacity(.5);
+    background: black;
+    width: 1090px;
+    height: 705px;
+}
+
+#dimenzije
+{
+    z-index: 1;
+    width: 1000px;
+    padding: 35px;
+    border: 10px solid black;
+    border-radius: 20px;
+}
+
 #glOkvir
 {
     display: flex;
-    max-width: 1000px;
-    min-width: 640px;
     margin: auto;
 }
 
 #prviAvatar, #drugiAvatar
 {
-    background:url(/X---O-game-master/X-O\ -\ game/patterns/dark-wood.jpg);
+    background: url(/X---O-game-master/X-O\ -\ game/patterns/dark-wood.jpg);
     border: 3px solid black;
     border-radius: 10px;
     padding-top: 45px;
@@ -51,6 +76,12 @@ body
     margin: auto;
     border-collapse: collapse;
     border: 2px solid black;
+}
+
+#obojenaCelija
+{
+    color: #585858;
+    background-color: black;
 }
 
 .celija
@@ -122,6 +153,17 @@ p
     filter: opacity(.5);
 }
 
+#zamracenCijeliEkran
+{
+    z-index: 2;
+    display: none;
+    background: black;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    filter: opacity(.5);
+}
+
 #izlazakPobjede
 {
     z-index: 4;
@@ -129,7 +171,7 @@ p
     width: 100%;
     height: 150px;
     position: fixed;
-    top: 220px;
+    top: 35%;
     right: 100%;
     color: white;
     display: flex;

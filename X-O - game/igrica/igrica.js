@@ -127,6 +127,19 @@ XO.run(function($rootScope){
 
             if($rootScope.oznacenaPolja[a]==true && $rootScope.oznacenaPolja[b]==true && $rootScope.oznacenaPolja[c]==true && $rootScope.oznacenaPoljaSaXiliO[a]==$rootScope.oznacenaPoljaSaXiliO[b] && $rootScope.oznacenaPoljaSaXiliO[a]==$rootScope.oznacenaPoljaSaXiliO[c])
             {
+                //bojanje celija...
+                var element1=angular.element($("#celija"+a))
+                var element2=angular.element($("#celija"+b))
+                var element3=angular.element($("#celija"+c))
+                console.log(element1.text());
+                console.log(element1.val());
+                console.log(element1.attr());
+                console.log(element1.html());
+
+                element1.html("<div ng-click='staviXiliO("+a+")' class='celija' id='obojenaCelija'>"+$rootScope.oznacenaPoljaSaXiliO[a]+"</div>")
+                element2.html("<div ng-click='staviXiliO("+b+")' class='celija' id='obojenaCelija'>"+$rootScope.oznacenaPoljaSaXiliO[a]+"</div>")
+                element3.html("<div ng-click='staviXiliO("+c+")' class='celija' id='obojenaCelija'>"+$rootScope.oznacenaPoljaSaXiliO[a]+"</div>")
+
                 var element=angular.element($('#pobjedaIgraca'))
                 
                 //ko je pobijedio...
@@ -141,8 +154,11 @@ XO.run(function($rootScope){
                     $compile(element)($scope)
                 }
                 
+
                 $scope.izlazakPobjede={"animation-name":"zaPobjedu","display":"block"}
+                $scope.zamracenCijeliEkran={"display":"block"}
                 $timeout(function(){
+                    $scope.zamracenCijeliEkran={"display":"none"}
                     $scope.izlazakPobjede={"display":"none"}
                 },5500)
                 

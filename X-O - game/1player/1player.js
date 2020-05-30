@@ -10,22 +10,14 @@
 
 XO.run(function($rootScope){
     $rootScope.prvoIme=""
-    $rootScope.drugoIme=""
     $rootScope.prvaSlika=""
-    $rootScope.drugaSlika=""
     $rootScope.daLiJeHoverovnoRT=false
-    $rootScope.prviRedRT=false
-    $rootScope.drugiRedRT=false
 })
 
 XO.controller("resetRootScope-a",function($rootScope){
     $rootScope.prvoIme=""
-    $rootScope.drugoIme=""
     $rootScope.prvaSlika=""
-    $rootScope.drugaSlika=""
     $rootScope.daLiJeHoverovnoRT=false
-    $rootScope.prviRedRT=false
-    $rootScope.drugiRedRT=false
 })
 
 XO.controller("kontrolerPomjeranjaAvatara",function($scope){
@@ -95,22 +87,19 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
     
     //id-evi za prvi red
     var divovi=["#nulti","#prvi","#drugi","#treci","#cetvrti","#peti","#sesti","#sedmi","#osmi","#deveti",]
-    
-    //id-evi za drugi red
-    var divovi2=["#nulti0","#prvi1","#drugi2","#treci3","#cetvrti4","#peti5","#sesti6","#sedmi7","#osmi8","#deveti9",]
-    
+        
     //niz za $rootScope.prvaSlika i $rootScope.drugaSlika
     var slike=["Avatars/PUBG.jpg","Avatars/1.jpg","Avatars/2.png","Avatars/3.jpg","Avatars/4.png","Avatars/5.png","Avatars/6.jpg","Avatars/7.png","Avatars/8.png","Avatars/9.jpg"]
     
     //provjera da li je hoverovana slika
     var daLiJeHoverovano=false
-    $scope.hoveruj=function(prviIliDrugiRed,redniBroj,redniBroj2)
+    $scope.hoveruj=function(redniBroj)
     {
         
         if(daLiJeHoverovano==false)
         {
-            zapamtiPrvuIDruguSliku(prviIliDrugiRed,redniBroj)
-            oznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano)
+            zapamtiPrvuIDruguSliku(redniBroj)
+            oznaciAvatara(hoverovano,redniBroj)
             
             daLiJeHoverovano=true
             $rootScope.daLiJeHoverovnoRT=true
@@ -120,8 +109,8 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
 
         else if(hoverovano[redniBroj]==true)
         {
-            odpamtiPrvuIDruguSliku(prviIliDrugiRed)
-            odOznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano)
+            odpamtiPrvuIDruguSliku()
+            odOznaciAvatara(redniBroj)
 
             hoverovano[redniBroj]=false
             daLiJeHoverovano=false
@@ -129,62 +118,29 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
             return {"opacity":"1"}
         }
 
-        function zapamtiPrvuIDruguSliku(prviIliDrugiRed,redniBroj){
-            if(prviIliDrugiRed==1){
-                $rootScope.prvaSlika=slike[redniBroj+1]
-                $rootScope.prviRedRT=true
-            }
-            else{
-                $rootScope.drugaSlika=slike[redniBroj+1]
-                $rootScope.drugiRedRT=true
-            }
+        function zapamtiPrvuIDruguSliku(redniBroj){
+            $rootScope.prvaSlika=slike[redniBroj+1]
         }
         
-        function odpamtiPrvuIDruguSliku(prviIliDrugiRed){
-            if(prviIliDrugiRed==1){
-                $rootScope.prvaSlika=""
-                $rootScope.prviRedRT=false
-            }
-            
-            else{
-                $rootScope.drugaSlika=""
-                $rootScope.drugiRedRT=false
-            }
-            
+        function odpamtiPrvuIDruguSliku(){
+            $rootScope.prvaSlika=""
         }
 
-        function oznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano){
+        function oznaciAvatara(hoverovano,redniBroj){
             for (var i=0;i<hoverovano.length;i++) {
                 if(i==redniBroj)
                 {
-                    if(redniBroj2<10)
-                    {
-                        var element=angular.element($(divovi[i]))
-                        element.html("<img src='/X-O - game/checkSign.png'>")
-                    }
-                    else
-                    {
-                        var element=angular.element($(divovi2[i]))
-                        element.html("<img src='checkSign.png'>")
-                    }
+                    var element=angular.element($(divovi[i]))
+                    element.html("<img src='checkSign.png'>")
+                    hoverovano[i]=true
                 }
-                hoverovano[i]=true
             }
         }
 
-        function odOznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano){
-            if(redniBroj2<10)
-            {
-                var element=angular.element($(divovi[redniBroj]))
-                element.html("")
-            }
-            else
-            {
-                var element=angular.element($(divovi2[redniBroj]))
-                element.html("")
-            }
+        function odOznaciAvatara(redniBroj){
+            var element=angular.element($(divovi[redniBroj]))
+            element.html("")
         }
-        
     }
 })
 

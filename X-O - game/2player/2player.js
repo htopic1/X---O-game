@@ -106,23 +106,19 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
     var daLiJeHoverovano=false
     $scope.hoveruj=function(prviIliDrugiRed,redniBroj,redniBroj2)
     {
-        
         if(daLiJeHoverovano==false)
         {
             zapamtiPrvuIDruguSliku(prviIliDrugiRed,redniBroj)
             oznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano)
-            
             daLiJeHoverovano=true
             $rootScope.daLiJeHoverovnoRT=true
             return {"opacity":".25"}
-            
         }
-
+        
         else if(hoverovano[redniBroj]==true)
         {
             odpamtiPrvuIDruguSliku(prviIliDrugiRed)
             odOznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano)
-
             hoverovano[redniBroj]=false
             daLiJeHoverovano=false
             $rootScope.daLiJeHoverovnoRT=false
@@ -167,12 +163,13 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
                         var element=angular.element($(divovi2[i]))
                         element.html("<img src='checkSign.png'>")
                     }
+                    hoverovano[i]=true
                 }
-                hoverovano[i]=true
             }
         }
 
         function odOznaciAvatara(hoverovano,redniBroj,redniBroj2,daLiJeHoverovano){
+            //daLiJeHoverovano=false
             if(redniBroj2<10)
             {
                 var element=angular.element($(divovi[redniBroj]))
@@ -184,7 +181,6 @@ XO.controller("kontrolerZaOznakuSlike",function($scope,$rootScope){
                 element.html("")
             }
         }
-        
     }
 })
 
