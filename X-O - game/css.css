@@ -2,4 +2,5 @@ body
 {
     margin: 0px;
     background: url(patterns/shattered-island.gif);
+    overflow: visible;
 }

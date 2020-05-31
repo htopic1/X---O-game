@@ -6,7 +6,7 @@ body
 #pomjeritiNaSredinu
 {
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,11 +14,12 @@ body
 
 #zatamnit
 {
-    position: fixed;
+    position: absolute;
     filter: opacity(.5);
     background: black;
     width: 1090px;
     height: 705px;
+    border-radius: 20px;
 }
 
 #dimenzije
@@ -38,7 +39,7 @@ body
 
 #prviAvatar, #drugiAvatar
 {
-    background: url(/X---O-game-master/X-O\ -\ game/patterns/dark-wood.jpg);
+    background: url(/X-O\ -\ game/patterns/dark-wood.jpg);
     border: 3px solid black;
     border-radius: 10px;
     padding-top: 45px;
@@ -159,6 +160,7 @@ p
     display: none;
     background: black;
     position: fixed;
+    top: 0px;
     width: 100vw;
     height: 100vh;
     filter: opacity(.5);
@@ -174,7 +176,7 @@ p
     top: 35%;
     right: 100%;
     color: white;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     font-size: 110px;
