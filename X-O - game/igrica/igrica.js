@@ -57,24 +57,64 @@ XO.run(function($rootScope){
     },0)
     
     //glavni kod
-    $scope.staviXiliO=function(broj){
+    if($rootScope.vrstaIgre=="2player"){
 
-        if($rootScope.pobjeda==false)
-        var daIliNe=postaviXiliOuTabelu(broj)
-        else
-        var daIliNe=true
+        //posudjeno iz multiplayer ili singleplayera
+        $scope.avatar1=$rootScope.prvaSlika
+        $scope.avatar2=$rootScope.drugaSlika
 
-        if(daIliNe==false)
-        {
-            $rootScope.pobjeda=provjeraPobjeda()
-            
+        $scope.imeAvatara1=$rootScope.prvoIme
+        $scope.imeAvatara2=$rootScope.drugoIme
+
+        $scope.staviXiliO=function(broj){
             if($rootScope.pobjeda==false)
+            var daIliNe=postaviXiliOuTabelu(broj)
+            else
+            var daIliNe=true
+
+            if(daIliNe==false)
             {
-                promjenaXiliO()
-                promjenaIgraca()
+                $rootScope.pobjeda=provjeraPobjeda()
+                
+                if($rootScope.pobjeda==false)
+                {
+                    promjenaXiliO()
+                    promjenaIgraca()
+                }
             }
         }
     }
+    
+
+    else if($rootScope.vrstaIgre=="1player"){
+
+        //posudjeno iz multiplayer ili singleplayera
+        $scope.avatar1=$rootScope.prvaSlikaP1
+        $scope.avatar2=$rootScope.drugaSlikaP1
+
+        $scope.imeAvatara1=$rootScope.prvoImeP1
+        $scope.imeAvatara2=$rootScope.drugoImeP1
+
+        $scope.staviXiliO=function(broj){
+
+            if($rootScope.pobjeda==false)
+            var daIliNe=postaviXiliOuTabelu(broj)
+            else
+            var daIliNe=true
+
+            if(daIliNe==false)
+            {
+                $rootScope.pobjeda=provjeraPobjeda()
+                
+                if($rootScope.pobjeda==false)
+                {
+                    promjenaXiliO()
+                    promjenaIgraca()
+                }
+            }
+        }
+    }
+    
 
     //vraca true ili false u zavisnosti da li je kliknuto mjesto prazno ili ne
     function postaviXiliOuTabelu(broj){
@@ -307,11 +347,4 @@ XO.run(function($rootScope){
         $scope.padajuciO=""
         
     }
-
-    //posudjeno iz multiplayer ili singleplayera
-    $scope.avatar1=$rootScope.prvaSlika
-    $scope.avatar2=$rootScope.drugaSlika
-
-    $scope.imeAvatara1=$rootScope.prvoIme
-    $scope.imeAvatara2=$rootScope.drugoIme
 })

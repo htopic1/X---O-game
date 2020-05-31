@@ -1,4 +1,4 @@
-<div ng-controller="resetRootScope-a"></div>
+<div ng-controller="resetRootScope-aP1"></div>
 <div class="glavni" id="glavni1" ng-style="sakrij">
     <div id="uvodniPodaci">
         <div>
@@ -13,15 +13,15 @@
         </div>
         <br><br>
 
-        <div ng-controller="kontrolerPomjeranjaAvatara" id="prijePlayer1">
+        <div ng-controller="kontrolerPomjeranjaAvataraP1" id="prijePlayer1">
             <div id="lijevo">
                 <button ng-click="nazad()" id="dugme1"><</button>
             </div>
             <div id="desno">
                 <button ng-click="naprijed()" id="dugme2">></button>
             </div>
-            
-            <div id="player1" ng-controller="kontrolerZaOznakuSlike">
+            <!---->
+            <div id="player1" ng-controller="kontrolerZaOznakuSlikeP1">
                 <div ng-style="stil11" id="prvi5">
                     <div class="slika"><img ng-init="stil0" ng-click="stil0=hoveruj(0)" ng-style="stil0" src="Avatars/1.jpg"><div class="AnSl" id="nulti"></div></div>
                     <div class="slika"><img ng-init="stil1" ng-click="stil1=hoveruj(1)" ng-style="stil1" src="Avatars/2.png"><div class="AnSl" id="prvi"></div></div>
@@ -50,9 +50,7 @@
             </div>
         </div>
         <br>
-        <div ng-controller="kontroler3" id="zaCrveneOkvirove">
-            <div ng-mouseover="spustiZindex1()" ng-click="ugasiOkvir1()" ng-style="missing1" id="crveniOkvir1"></div>
-            <div ng-mouseover="spustiZindex2()" ng-click="ugasiOkvir2()" ng-style="missing2" id="crveniOkvir2"></div>
+        <div ng-controller="kontroler3P1" id="zaCrveneOkvirove">
             <div>
                 <table id="tabelaPlayer2">
                     <tr>
@@ -68,8 +66,8 @@
             <br>
             <div id="odGumba"><br> 
                 <a href="#!/"><button class="gumb">NAZAD</button></a> 
-                <div ng-style="laznoDugme" id="laznoDugme"><button ng-click="pokreni(player1,player2)" class="gumb">ZAPOČNI!</button></div>
-                <div ng-style="pravoDugme" id="pravoDugme"><a href="#!igrica"><button ng-click="pokreni(player1,player2)" class="gumb">ZAPOČNI!</button></a></div>
+                <div ng-style="laznoDugme" id="laznoDugme"><button ng-click="pokreni(player1)" class="gumb">ZAPOČNI!</button></div>
+                <div ng-style="pravoDugme" id="pravoDugme"><a href="#!igrica"><button ng-click="pokreni(player1)" class="gumb">ZAPOČNI!</button></a></div>
             </div>
         </div>
     </div>

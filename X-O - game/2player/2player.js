@@ -16,6 +16,7 @@ XO.run(function($rootScope){
     $rootScope.daLiJeHoverovnoRT=false
     $rootScope.prviRedRT=false
     $rootScope.drugiRedRT=false
+    $rootScope.vrstaIgre=""
 })
 
 XO.controller("resetRootScope-a",function($rootScope){
@@ -26,6 +27,7 @@ XO.controller("resetRootScope-a",function($rootScope){
     $rootScope.daLiJeHoverovnoRT=false
     $rootScope.prviRedRT=false
     $rootScope.drugiRedRT=false
+    $rootScope.vrstaIgre=""
 })
 
 XO.controller("kontrolerPomjeranjaAvatara",function($scope){
@@ -198,6 +200,8 @@ XO.controller("kontroler3",function($scope,$interval,$rootScope,$timeout){
         {
             $scope.laznoDugme={"display":"none"}
             $scope.pravoDugme={"display":"block"}
+
+            $rootScope.vrstaIgre="2player"
         }
         else
         {
