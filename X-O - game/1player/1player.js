@@ -182,7 +182,7 @@ XO.controller("kontroler3P1",function($scope,$interval,$rootScope,$timeout){
             var randomNumber=Math.floor(Math.random()*10)
             $rootScope.drugaSlikaP1=slike[randomNumber]
             $rootScope.drugoImeP1=imenaSlika[randomNumber-1]
-            console.log($rootScope.drugaSlikaP1+"  "+$rootScope.drugoImeP1);
+            /*console.log($rootScope.drugaSlikaP1+"  "+$rootScope.drugoImeP1);*/
         }
         else {
             if($rootScope.prvaSlikaP1!="")
