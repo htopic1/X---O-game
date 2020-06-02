@@ -28,7 +28,7 @@ XO.run(function($rootScope){
     {
         $scope.zaUklonitiAkoNemaImena={"display":"none"}
         var element=angular.element($("#defaultLink"))
-        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Nazad na <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
+        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Back to <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
     }
     else
     {
@@ -84,6 +84,13 @@ XO.run(function($rootScope){
                 {
                     promjenaXiliO()
                     promjenaIgraca()
+                    var nerijeseno=provjeraNerijeseno()
+                    console.log(nerijeseno);
+                    if(nerijeseno==true){
+                        console.log(nerijeseno);
+                        $rootScope.pobjeda=true
+                    }
+
                 }
             }
         }
@@ -150,7 +157,6 @@ XO.run(function($rootScope){
 
     function promjenaIgraca(){
         var element=angular.element($('#poruka'))
-        console.log(element.html());
         
         if($rootScope.vrstaIgre=="2player"){
             if(element.html()=='<p class="ng-binding">Na redu je: '+$rootScope.prvoIme+'</p>')
@@ -318,6 +324,14 @@ XO.run(function($rootScope){
                 }
             }
         },1000)
+    }
+
+    function provjeraNerijeseno(){
+        for(var i=0;i<9;i++){
+            if($rootScope.oznacenaPolja[i]==false)
+            return false
+        }
+        return true
     }
 
     $scope.newGame=function(){

@@ -21,7 +21,7 @@ XO.controller("resetRootScope-aP1",function($rootScope,$scope){
     if($rootScope.singleplayer==false){
         $scope.zaUklonitiAkoNemaTrueSP={"display":"none"}
         var element=angular.element($("#defaultLinkSP"))
-        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Nazad na <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
+        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Back to <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
     }
     else{
         $rootScope.prvoImeP1=""

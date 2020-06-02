@@ -263,3 +263,9 @@ input
     text-align: center;
     display: none;
 }
+
+#defaultLinkMP, #defaultLinkMP a
+{
+    color: gray;
+    text-align: center;
+}

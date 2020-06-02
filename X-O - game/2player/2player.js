@@ -21,9 +21,9 @@ XO.run(function($rootScope){
 
 XO.controller("resetRootScope-a",function($rootScope,$scope){
     if($rootScope.multiplayer==false){
-        $scope.zaUklonitiAkoNemaImena={"display":"none"}
+        $scope.zaUklonitiAkoNemaTrueMP={"display":"none"}
         var element=angular.element($("#defaultLinkMP"))
-        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Nazad na <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
+        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Back to <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
     }
     else{
         $rootScope.prvoIme=""
