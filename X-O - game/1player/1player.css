@@ -57,6 +57,9 @@ body::-webkit-scrollbar
     height: 100px;
     margin: auto;
     position: relative;
+    border: 5px solid rgb(88, 88, 88);
+    border-radius: 15px;
+    padding: 25px 0px;
 }
 
 /*klik lijevo*/

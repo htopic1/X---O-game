@@ -10,8 +10,17 @@
 
 #naslov
 {
+    position: absolute;
+    z-index: 1;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 232px;
     border: 1px solid black;
     border-radius: 10px;
+    background: url(/X-O\ -\ game/patterns/dark-wood.jpg);
 }
 
 .posFont
@@ -35,11 +44,14 @@
 
 #okvirOkoStavki
 {
+    position: absolute;
+    transition: 1s;
     width: fit-content;
     border: 1px solid black;
     text-align: center;
     padding: 25px;
     border-radius: 10px;
+    background: url(/X-O\ -\ game/patterns/dark-wood.jpg);
 }
 
 .buton
@@ -57,4 +69,38 @@
 .buton:hover
 {
     background-color: gray;
+}
+
+#loading
+{
+    position: fixed;
+    width: 100wv;
+    height: 100vh;
+    transition: 1s;
+    z-index: 2;
+}
+
+#loadingPage
+{
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    position: absolute;
+}
+
+#loadingPicture
+{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 2s infinite linear loading;
+}
+
+@keyframes loading
+{
+    0% {transform: rotate(0deg)}
+    100%{transform: rotate(360deg);}
 }

@@ -80,7 +80,6 @@ XO.run(function($rootScope){
             if(daIliNe==false)
             {
                 $rootScope.pobjeda=provjeraPobjeda()
-                
                 if($rootScope.pobjeda==false)
                 {
                     promjenaXiliO()
@@ -89,11 +88,8 @@ XO.run(function($rootScope){
             }
         }
     }
-    
 
     else if($rootScope.vrstaIgre=="1player"){
-        
-        
         //posudjeno iz multiplayer ili singleplayera
         $scope.avatar1=$rootScope.prvaSlikaP1
         $scope.avatar2=$rootScope.drugaSlikaP1
@@ -101,49 +97,31 @@ XO.run(function($rootScope){
         $scope.imeAvatara1=$rootScope.prvoImeP1
         $scope.imeAvatara2=$rootScope.drugoImeP1
 
+        var computerTurn=false
         $scope.staviXiliO=function(broj){
-            console.log($rootScope.XiliO);
-            if($rootScope.pobjeda==false)
-            var daIliNe=postaviXiliOuTabelu(broj)
-            else
-            var daIliNe=true
-
-            if(daIliNe==false)
-            {
-                $rootScope.pobjeda=provjeraPobjeda()
-                
+            if(computerTurn==false){
+                computerTurn=true
+                $scope.iskljuciReset=true
                 if($rootScope.pobjeda==false)
-                {
-                    promjenaXiliO()
-                    promjenaIgraca()
-                }
-            }
-            $timeout(function(){
-                console.log($rootScope.XiliO);
-            do{
-                var randomBroj=Math.floor(Math.random()*9)
-                if($rootScope.oznacenaPolja[randomBroj]==false)
-                break;
-            }while(1)
-            if($rootScope.pobjeda==false)
-            var daIliNe=postaviXiliOuTabelu(randomBroj)
-            else
-            var daIliNe=true
+                var daIliNe=postaviXiliOuTabelu(broj)
+                else
+                var daIliNe=true
 
-            if(daIliNe==false)
-            {
-                $rootScope.pobjeda=provjeraPobjeda()
-                
-                if($rootScope.pobjeda==false)
+                if(daIliNe==false)
                 {
-                    promjenaXiliO()
-                    promjenaIgraca()
+                    $rootScope.pobjeda=provjeraPobjeda()
+                    
+                    if($rootScope.pobjeda==false)
+                    {
+                        promjenaXiliO()
+                        promjenaIgraca()
+                    }
                 }
+                kompjuterovPotez()
             }
-            },1000)
         }
     }
-    
+
 
     //vraca true ili false u zavisnosti da li je kliknuto mjesto prazno ili ne
     function postaviXiliOuTabelu(broj){
@@ -162,6 +140,8 @@ XO.run(function($rootScope){
     }
 
     function promjenaXiliO(){
+        console.log($rootScope.XiliO);
+        
         if($rootScope.XiliO=='X')
         $rootScope.XiliO='O'
         else
@@ -170,19 +150,21 @@ XO.run(function($rootScope){
 
     function promjenaIgraca(){
         var element=angular.element($('#poruka'))
+        console.log(element.html());
+        
         if($rootScope.vrstaIgre=="2player"){
             if(element.html()=='<p class="ng-binding">Na redu je: '+$rootScope.prvoIme+'</p>')
             {
                 $scope.drugiAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
                 $scope.prviAvatarPotez={}
-                element.html("<p>Na redu je: {{imeAvatara2}}</p>")
+                element.html("<p class='ng-binding'>Na redu je: {{imeAvatara2}}</p>")
                 $compile(element)($scope)
             }
             else
             {
                 $scope.prviAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
                 $scope.drugiAvatarPotez={}
-                element.html("<p>Na redu je: {{imeAvatara1}}</p>")
+                element.html("<p class='ng-binding'>Na redu je: {{imeAvatara1}}</p>")
                 $compile(element)($scope)
             }
         }
@@ -191,14 +173,14 @@ XO.run(function($rootScope){
             {
                 $scope.drugiAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
                 $scope.prviAvatarPotez={}
-                element.html("<p>Na redu je: {{imeAvatara2}}</p>")
+                element.html("<p class='ng-binding'>Na redu je: {{imeAvatara2}}</p>")
                 $compile(element)($scope)
             }
             else
             {
                 $scope.prviAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
                 $scope.drugiAvatarPotez={}
-                element.html("<p>Na redu je: {{imeAvatara1}}</p>")
+                element.html("<p class='ng-binding'>Na redu je: {{imeAvatara1}}</p>")
                 $compile(element)($scope)
             }
         }
@@ -218,10 +200,6 @@ XO.run(function($rootScope){
                 var element1=angular.element($("#celija"+a))
                 var element2=angular.element($("#celija"+b))
                 var element3=angular.element($("#celija"+c))
-                console.log(element1.text());
-                console.log(element1.val());
-                console.log(element1.attr());
-                console.log(element1.html());
 
                 element1.html("<div ng-click='staviXiliO("+a+")' class='celija' id='obojenaCelija'>"+$rootScope.oznacenaPoljaSaXiliO[a]+"</div>")
                 element2.html("<div ng-click='staviXiliO("+b+")' class='celija' id='obojenaCelija'>"+$rootScope.oznacenaPoljaSaXiliO[a]+"</div>")
@@ -315,6 +293,33 @@ XO.run(function($rootScope){
         return false
     }
 
+    function kompjuterovPotez(){
+        $timeout(function(){
+            computerTurn=false
+            $scope.iskljuciReset=false
+            do{
+                var randomBroj=Math.floor(Math.random()*9)
+                if($rootScope.oznacenaPolja[randomBroj]==false)
+                break;
+            }while(1)
+            if($rootScope.pobjeda==false)
+            var daIliNe=postaviXiliOuTabelu(randomBroj)
+            else
+            var daIliNe=true
+
+            if(daIliNe==false)
+            {
+                $rootScope.pobjeda=provjeraPobjeda()
+                
+                if($rootScope.pobjeda==false)
+                {
+                    promjenaXiliO()
+                    promjenaIgraca()
+                }
+            }
+        },1000)
+    }
+
     $scope.newGame=function(){
         //reset pobjede
         $rootScope.pobjeda=false
@@ -328,17 +333,18 @@ XO.run(function($rootScope){
 
         //reset XiliO na X odnosno O u zavisnosti koja je runda i reset igraca
         var element=angular.element($("#poruka"))
+        
         if($rootScope.prviIgrac=='X')
         {
-            $scope.drugiAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
             $scope.prviAvatarPotez={}
+            $scope.drugiAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
 
             $rootScope.XiliO='O'
             
             if($rootScope.vrstaIgre=="2player")
-            element.html("<p>Na redu je: "+$rootScope.drugoIme+"</p>")
+            element.html("<p class='ng-binding'>Na redu je: "+$rootScope.drugoIme+"</p>")
             else
-            element.html("<p>Na redu je: "+$rootScope.drugoImeP1+"</p>")
+            element.html("<p class='ng-binding'>Na redu je: "+$rootScope.drugoImeP1+"</p>")
             $rootScope.prviIgrac='O'
         }
         else
@@ -349,9 +355,9 @@ XO.run(function($rootScope){
             $rootScope.XiliO='X'
 
             if($rootScope.vrstaIgre=="2player")
-            element.html("<p>Na redu je: "+$rootScope.prvoIme+"</p>")
-            else
-            element.html("<p>Na redu je: "+$rootScope.prvoImeP1+"</p>")
+            element.html("<p class='ng-binding'>Na redu je: "+$rootScope.prvoIme+"</p>")
+            /*else
+            element.html("<p>Na redu je: "+$rootScope.prvoImeP1+"</p>")*/
             $rootScope.prviIgrac='X'
         }
         
@@ -391,6 +397,9 @@ XO.run(function($rootScope){
         //reset pobjede
         $rootScope.pobjeda=false
 
+        //crveni okvir oko prvog igraca
+        //$scope.prviAvatarPotez={"box-shadow":"0px 0px 10px 15px rgba(255,0,0,1)"}
+
         //sklanjanje pobjede instant
         $scope.izlazakPobjede={"display":"none"}
         $timeout.cancel($rootScope.zaIzbrisatTimeout)
@@ -405,9 +414,9 @@ XO.run(function($rootScope){
         //reset igraca
         var element=angular.element($("#poruka"))
         if($rootScope.vrstaIgre=="2player")
-        element.html("<p>Na redu je: "+$rootScope.prvoIme+"</p>")
+        element.html("<p class='ng-binding'>Na redu je: "+$rootScope.prvoIme+"</p>")
         else
-        element.html("<p>Na redu je: "+$rootScope.prvoImeP1+"</p>")
+        element.html("<p class='ng-binding'>Na redu je: "+$rootScope.prvoImeP1+"</p>")
 
         //reset XiliO na X
         $rootScope.XiliO='X'

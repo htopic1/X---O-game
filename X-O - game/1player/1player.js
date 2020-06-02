@@ -17,13 +17,21 @@ XO.run(function($rootScope){
     $rootScope.vrstaIgre=""
 })
 
-XO.controller("resetRootScope-aP1",function($rootScope){
-    $rootScope.prvoImeP1=""
-    $rootScope.prvaSlikaP1=""
-    $rootScope.drugoImeP1=""
-    $rootScope.drugaSlikaP1=""
-    $rootScope.daLiJeHoverovnoRTP1=false
-    $rootScope.vrstaIgre=""
+XO.controller("resetRootScope-aP1",function($rootScope,$scope){
+    if($rootScope.singleplayer==false){
+        $scope.zaUklonitiAkoNemaTrueSP={"display":"none"}
+        var element=angular.element($("#defaultLinkSP"))
+        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Nazad na <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
+    }
+    else{
+        $rootScope.prvoImeP1=""
+        $rootScope.prvaSlikaP1=""
+        $rootScope.drugoImeP1=""
+        $rootScope.drugaSlikaP1=""
+        $rootScope.daLiJeHoverovnoRTP1=false
+        $rootScope.vrstaIgre=""
+    }
+    
 })
 
 XO.controller("kontrolerPomjeranjaAvataraP1",function($scope){
@@ -180,9 +188,8 @@ XO.controller("kontroler3P1",function($scope,$interval,$rootScope,$timeout){
             var slike=["Avatars/PUBG.jpg","Avatars/1.jpg","Avatars/2.png","Avatars/3.jpg","Avatars/4.png","Avatars/5.png","Avatars/6.jpg","Avatars/7.png","Avatars/8.png","Avatars/9.jpg"]
             var imenaSlika=["NightWitch","SnowMan","IronMan","Jasuo","Garen","Spiderman","Sonic","Minecrafter","MrGreen","CaptainPrice"]
             var randomNumber=Math.floor(Math.random()*10)
-            $rootScope.drugaSlikaP1=slike[randomNumber]
+            $rootScope.drugaSlikaP1=slike[randomNumber-1]
             $rootScope.drugoImeP1=imenaSlika[randomNumber-1]
-            /*console.log($rootScope.drugaSlikaP1+"  "+$rootScope.drugoImeP1);*/
         }
         else {
             if($rootScope.prvaSlikaP1!="")

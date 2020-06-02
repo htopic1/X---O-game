@@ -1,15 +1,23 @@
-<div id="okvir">
-    <div id="naslov">
-        <p class="posFont">X -- O</p>
-        <p class="posFont2">IKS OKS</p>
-        <p class="posFont2">TIC TAC TOE</p>
-        <br>
+<div ng-controller="resetRT"></div>
+<div ng-controller="loadingIOtvoriMenu">
+    <div id="loading" ng-style="stopAnimation">
+        <div id="loadingPage"></div>
+        <div id="loadingPicture"><div><img src="refresh-outline.svg" width="50px" alt=""></div></div>
     </div>
-    <br>
-    <div id="okvirOkoStavki">
-        <div><a href="#!singleplayer"><button class="buton" ng-click="sakrij()">SINGLEPLAYER</button></a></div>
-        <div><a href="#!multiplayer"><button class="buton" ng-click="sakrij()">MULTIPLAYER</button></a></div>
-        <div><a href="#!about"><button class="buton" ng-click="sakrij()">ABOUT</button></a></div>
-        <div><a href="#!quit"><button class="buton" ng-click="sakrij()">QUIT</button></a></div>
+
+    <div id="okvir">
+        <div id="naslov" ng-style="gornjiMenu">
+            <p class="posFont">X -- O</p>
+            <p class="posFont2">IKS OKS</p>
+            <p class="posFont2">TIC TAC TOE</p>
+            <br>
+        </div>
+        <br>
+        <div id="okvirOkoStavki" ng-style="donjiMenu">
+            <div><a href="#!singleplayer"><button class="buton" ng-click="SP()">SINGLEPLAYER</button></a></div>
+            <div><a href="#!multiplayer"><button class="buton" ng-click="MP()">MULTIPLAYER</button></a></div>
+            <div><a href="#!about"><button title="In progress!" ng-disabled="iskljuciPrivremeno" class="buton">ABOUT</button></a></div>
+            <div><a href="#!quit"><button title="In progress!" ng-disabled="iskljuciPrivremeno" class="buton">QUIT</button></a></div>
+        </div>
     </div>
 </div>

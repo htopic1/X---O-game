@@ -19,15 +19,22 @@ XO.run(function($rootScope){
     $rootScope.vrstaIgre=""
 })
 
-XO.controller("resetRootScope-a",function($rootScope){
-    $rootScope.prvoIme=""
-    $rootScope.drugoIme=""
-    $rootScope.prvaSlika=""
-    $rootScope.drugaSlika=""
-    $rootScope.daLiJeHoverovnoRT=false
-    $rootScope.prviRedRT=false
-    $rootScope.drugiRedRT=false
-    $rootScope.vrstaIgre=""
+XO.controller("resetRootScope-a",function($rootScope,$scope){
+    if($rootScope.multiplayer==false){
+        $scope.zaUklonitiAkoNemaImena={"display":"none"}
+        var element=angular.element($("#defaultLinkMP"))
+        element.html("<br><br><br><br><br><br><br><br><hr><br><br><p>Nazad na <a href='#!/'>MAIN MENU</a>!</p><br><br><hr>")
+    }
+    else{
+        $rootScope.prvoIme=""
+        $rootScope.drugoIme=""
+        $rootScope.prvaSlika=""
+        $rootScope.drugaSlika=""
+        $rootScope.daLiJeHoverovnoRT=false
+        $rootScope.prviRedRT=false
+        $rootScope.drugiRedRT=false
+        $rootScope.vrstaIgre=""
+    }
 })
 
 XO.controller("kontrolerPomjeranjaAvatara",function($scope){

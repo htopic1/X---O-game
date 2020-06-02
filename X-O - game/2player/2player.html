@@ -6,7 +6,7 @@
             <div id="linija">
                 <div id="kocka"></div>
             </div>
-            <h1>Odaberite avatare:</h1>
+            <h1>Choose your avatars:</h1>
             <div id="linija">
                 <div id="kocka"></div>
             </div>
@@ -15,10 +15,10 @@
 
         <div ng-controller="kontrolerPomjeranjaAvatara" id="prijePlayer1">
             <div id="lijevo">
-                <button ng-click="nazad()" id="dugme1"><</button>
+                <img src="arrow-undo-circle-outline.svg" width="25px" ng-click="nazad()" id="dugme1">
             </div>
             <div id="desno">
-                <button ng-click="naprijed()" id="dugme2">></button>
+                <img src="arrow-redo-circle-outline.svg" width="25px" ng-click="naprijed()" id="dugme2">
             </div>
             
             <div id="player1" ng-controller="kontrolerZaOznakuSlike">
@@ -41,10 +41,10 @@
 
         <div ng-controller="kontrolerPomjeranjaAvatara" id="prijePlayer1">
             <div id="lijevo">
-                <button ng-click="nazad()" id="dugme1"><</button>
+                <img src="arrow-undo-circle-outline.svg" width="25px" ng-click="nazad()" id="dugme1">
             </div>
             <div id="desno">
-                <button ng-click="naprijed()" id="dugme2">></button>
+                <img src="arrow-redo-circle-outline.svg" width="25px" ng-click="naprijed()" id="dugme2">
             </div>
             <div id="player1" ng-controller="kontrolerZaOznakuSlike">
                 <div ng-style="stil11" id="prvi5">
@@ -69,7 +69,7 @@
             <div id="linija">
                 <div id="kocka"></div>
             </div>
-            <h1>Odaberite username:</h1>
+            <h1>Choose your usernames:</h1>
             <div id="linija">
                 <div id="kocka"></div>
             </div>
@@ -88,14 +88,15 @@
             </div>
             <br>
             <div>
-                <p ng-style="problem2" id="problem2">Oznaci avatara</p>
-                <p ng-style="problem1" id="problem1">Unesi Username</p>
+                <p ng-style="problem2" id="problem2">Mark your avatar!</p>
+                <p ng-style="problem1" id="problem1">Type username!</p>
             </div>
             <br>
             <div id="odGumba"><br> 
-                <a href="#!/"><button class="gumb">NAZAD</button></a> 
-                <div ng-style="laznoDugme" id="laznoDugme"><button ng-click="pokreni(player1,player2)" class="gumb">ZAPOČNI!</button></div>
-                <div ng-style="pravoDugme" id="pravoDugme"><a href="#!igrica"><button ng-click="pokreni(player1,player2)" class="gumb">ZAPOČNI!</button></a></div>
+                <a href="#!/"><button class="gumb">BACK</button></a> 
+                <div ng-style="laznoDugme" id="laznoDugme"><button ng-click="pokreni(player1,player2)" class="gumb">START!</button></div>
+                <div ng-style="pravoDugme" id="pravoDugme"><a href="#!igrica"><button ng-click="pokreni(player1,player2)" class="gumb">START!</button></a></div>
+                <br><br>
             </div>
         </div>
     </div>
