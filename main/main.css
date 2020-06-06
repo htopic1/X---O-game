@@ -20,7 +20,7 @@
     height: 232px;
     border: 1px solid black;
     border-radius: 10px;
-    background: url(/X-O\ -\ game/patterns/dark-wood.jpg);
+    background: url(/patterns/dark-wood.jpg);
 }
 
 .posFont
@@ -51,7 +51,7 @@
     text-align: center;
     padding: 25px;
     border-radius: 10px;
-    background: url(/X-O\ -\ game/patterns/dark-wood.jpg);
+    background: url(/patterns/dark-wood.jpg);
 }
 
 .buton

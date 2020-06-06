@@ -53,6 +53,7 @@ body::-webkit-scrollbar
 /*kreiranje prvih avatara*/
 #prijePlayer1
 {
+    background: url(/patterns/dark-wood.jpg);
     width: 700px;
     height: 100px;
     margin: auto;

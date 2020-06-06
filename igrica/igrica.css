@@ -39,7 +39,7 @@ body
 
 #prviAvatar, #drugiAvatar
 {
-    background: url(/X-O\ -\ game/patterns/dark-wood.jpg);
+    background: url(/patterns/dark-wood.jpg);
     border: 3px solid black;
     border-radius: 10px;
     padding-top: 45px;
