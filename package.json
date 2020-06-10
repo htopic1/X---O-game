@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/htopic1/X---O-game/issues"
   },
-  "homepage": "https://github.com/htopic1/X---O-game#readme"
+  "homepage": "https://github.com/htopic1/X---O-game#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "0.0.1-security"
+  }
 }
