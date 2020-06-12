@@ -23,17 +23,39 @@ XO.controller("loadingIOtvoriMenu",function($scope,$timeout,$rootScope){
     
     if($rootScope.prviPut==false){
         $rootScope.prviPut=true
-        $timeout(function(){
-            $scope.stopAnimation={"filter":"opacity(0)"}
-            $timeout(function(){
-                $scope.stopAnimation={"display":"none"}
-            },1000)
-        },4500)
+        
+        $timeout(_=>{
+            $scope.otkrijSlovo1={"visibility":"visible"}
+            $timeout(_=>{
+                $scope.otkrijSlovo2={"visibility":"visible"}
+                $timeout(_=>{
+                    $scope.otkrijSlovo3={"visibility":"visible"}
+                    $timeout(_=>{
+                        $scope.otkrijSlovo4={"visibility":"visible"}
+                        $timeout(_=>{
+                            $scope.otkrijSlovo5={"visibility":"visible"}
+                            $timeout(_=>{
+                                $scope.otkrijSlovo6={"visibility":"visible"}
+                                $timeout(_=>{
+                                    $scope.stopAnimation={"filter":"opacity(0)"}
+                                    $scope.otkrijSlovo7={"visibility":"visible"}
+                                    $scope.loadingBar={"left":"0%"}
+                                    $timeout(_=>{
+                                        $scope.stopAnimation={"display":"none"}
+                                        $timeout(_=>{
+                                            $scope.gornjiMenu={"position":"relative","height":"fit-content"}
+                                            $scope.donjiMenu={"position":"relative"}
+                                        },1000)
+                                    },1000)
+                                },500)
+                            },500)
+                        },500)
+                    },500)
+                },500)
+            },500)
+        },500)
 
-        $timeout(function(){
-            $scope.gornjiMenu={"position":"relative","height":"fit-content"}
-            $scope.donjiMenu={"position":"relative"}
-        },6500)
+        
     }
     else{
         $scope.stopAnimation={"display":"none"}
