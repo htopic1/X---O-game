@@ -10,7 +10,7 @@ XO.controller("resetRT",function(){
 })
 
 XO.controller("loadingIOtvoriMenu",function($scope,$timeout,$rootScope){
-    //dok se ne sredi sve
+    //turn off dugmad
     $scope.iskljuciPrivremeno=true
 
     $scope.SP=function(){
